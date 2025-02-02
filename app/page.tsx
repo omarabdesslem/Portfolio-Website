@@ -57,18 +57,19 @@ export default function CV() {
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h3 className="text-xl font-semibold mb-4">ABOUT</h3>
           <p className="mb-4">
-            Hi there! I&#39;m Omar, an undergraduate student pursuing Computer
-            Science at
+            Hi there! I&#39;m Omar, an undergraduate student pursuing Computer Science at&nbsp;
             <a
               href="https://www.unige.ch"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-pink-700 hover:underline mx-1"
+              className="text-pink-700 hover:underline"
             >
               University of Geneva
             </a>
-            (UNIGE), Switzerland.
+            &nbsp;(UNIGE), Switzerland.
           </p>
+
+
           <p>
             I strive for ingenuity and skill refinement in software engineering,
             data mining, cryptography, and web development.
