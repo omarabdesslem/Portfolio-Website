@@ -426,7 +426,6 @@ export default function CV() {
       <footer className="w-full text-center mt-12">
         <p>Omar Abdesslem</p>
         <p>Built by hand using React</p>
-        <p>Inspired by Creative CV from Template Flip</p>
         <p>MIT License, {new Date().getFullYear()}</p>
         </footer>
     </main>
