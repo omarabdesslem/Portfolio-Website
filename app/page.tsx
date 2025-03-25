@@ -13,10 +13,11 @@ export default function CV() {
             className="rounded-full border-4 border-gray-300"
             loading="eager"
           />
-          {/* Name and details */}
+          {/*  */}
           <div className="mt-4">
             <h1 className="text-4xl font-bold">Omar Abdesslem</h1>
             <p className="text-lg">
+              {/* AI Intern @SecuLabs | Msc AI @ETHZ */}
               Software Engineer | Student at the University of Geneva & HKU
             </p>
             <p className="text-md">Geneva, Switzerland</p>
@@ -57,16 +58,16 @@ export default function CV() {
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h3 className="text-xl font-semibold mb-4">ABOUT</h3>
           <p className="mb-4">
-            Hi there! I&#39;m Omar, an undergraduate student pursuing Computer Science at&nbsp;
+            Hi there! I&#39;m Omar, a master's student at the&nbsp;
             <a
-              href="https://www.unige.ch"
+              href="https://www.ethz.ch"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-pink-700 hover:underline"
+              className="text-black-800 hover:underline"
             >
-              University of Geneva
+              Swiss Federal Institute of Technology
             </a>
-            &nbsp;(UNIGE), Switzerland.
+            &nbsp;(ETH Zürich), Switzerland.
           </p>
 
 
@@ -197,6 +198,38 @@ export default function CV() {
       </section>
       <section id="experiences" className="w-full max-w-4xl mb-40">
         <h2 className="text-2xl font-bold mb-4">WORK EXPERIENCES</h2>
+         {/* <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+          <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
+            <a
+              href="http://seculabs.ch"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/SecuLabs.png"
+                alt="SecuLabs Logo"
+                width={150}
+                height={150}
+                className="rounded-full"
+                loading="eager"
+              />
+            </a>
+          </div>
+          <div className="flex-1">
+            <h3 className="text-xl font-semibold">
+              AI Intern
+            </h3>
+            <p>
+              SecuLabs,
+              June 2025 - Sep 2025, Lausanne, Switzerland
+            </p>
+            <p>
+            SecuLabs SA is a Swiss cybersecurity company that provides its clients with top-level expertise. It offers a personalized, close-at-hand service in the areas of technical security, governance, and compliance.
+</p>
+          </div>
+        </div> */}
+        
+
         <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
           <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
             <a
@@ -225,8 +258,7 @@ export default function CV() {
             <p>
               Assisted in designing and refining interactive web-based tools
               aimed at enhancing Cantonese and Mandarin language acquisition for
-              specially-abled children. Focused on creating user-friendly
-              interfaces that support diverse learning needs. Worked closely
+              specially-abled children. Worked closely
               with a team of developers, educators, and language specialists,
               acquiring essential skills in software engineering principles,
               version control, collaborative development with Git, and CI/CD
@@ -253,6 +285,7 @@ export default function CV() {
               />
             </a>
           </div>
+
           <div className="flex-1">
             <h3 className="text-xl font-semibold">Programming Teacher</h3>
             <p>Futurekids, Sep 2022 - Aug 2023, Geneva, Switzerland</p>
@@ -270,6 +303,35 @@ export default function CV() {
 
       <section id="education" className="w-full max-w-4xl mb-40">
         <h2 className="text-2xl font-bold mb-4">EDUCATION</h2>
+{/*  <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+          <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
+            <a
+              href="https://www.ethz.ch"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/eth.svg"
+                alt="ETHZ Logo"
+                width={150}
+                height={150}
+                className="rounded-full"
+                loading="eager"
+              />
+            </a>
+          </div>
+          <div className="flex-1">
+            <h3 className="text-xl font-semibold">ETH Zürich
+            </h3>
+            <p>Msc, Machine Intelligence & Data Science</p>
+            <p>Sep 2025 - June 2027</p>
+            <p>
+            Participating in cutting-edge 
+      projects and collaborations within ETH Zurich&#39;s renowned academic environment.
+            </p>
+          </div>
+        </div> */}
+       
 
         <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
           <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
@@ -385,7 +447,7 @@ export default function CV() {
               rel="noopener noreferrer"
             >
               <Image
-                src="/images/opendata-glamhack.jpg"
+                src="/images/opendata-glamhack_2.jpg"
                 alt="Swiss Open Cultural Data Hackathon, Luzern"
                 width={1300}
                 height={1000}
@@ -407,7 +469,7 @@ export default function CV() {
               rel="noopener noreferrer"
             >
               <Image
-                src="/images/french_soc_log.jpg"
+                src="/images/french_soc_log.jpeg"
                 alt="Activity Logo"
                 width={1300}
                 height={1000}
