@@ -2,16 +2,15 @@
   "name": "personal_website",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "export": "next export",
-    "start": "next start",
-    "lint": "next lint",
-    "install": "npm install",
-    "install:legacy-peer-deps": "npm install --legacy-peer-deps",
-    "install:force": "npm install --force"
-  },
+"scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "export": "next export",
+  "start": "next start",
+  "lint": "next lint",
+  "install:legacy-peer-deps": "npm install --legacy-peer-deps",
+  "install:force": "npm install --force"
+},
   "dependencies": {
     "framer-motion": "^12.6.2",
     "glob": "^11.0.1",
