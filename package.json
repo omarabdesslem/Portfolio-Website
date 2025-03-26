@@ -2,15 +2,15 @@
   "name": "personal_website",
   "version": "0.1.0",
   "private": true,
-"scripts": {
-  "dev": "next dev",
-  "build": "next build",
-  "export": "next export",
-  "start": "next start",
-  "lint": "next lint",
-  "install:legacy-peer-deps": "npm install --legacy-peer-deps",
-  "install:force": "npm install --force"
-},
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start",
+    "lint": "next lint",
+    "install:legacy-peer-deps": "npm install --legacy-peer-deps",
+    "install:force": "npm install --force"
+  },
   "dependencies": {
     "framer-motion": "^12.6.2",
     "glob": "^11.0.1",
@@ -23,13 +23,13 @@
     "node": ">=20"
   },
   "devDependencies": {
-    "@types/node": "^18.0.0",
-    "@types/react": "^18.0.0",
+    "@types/node": "18.19.83",
+    "@types/react": "18.3.20",
     "@types/react-dom": "^18.0.0",
     "eslint": "^9.3.0",
     "eslint-config-next": "15.2.2",
     "postcss": "^8.0.0",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.0.0"
+    "typescript": "5.8.2"
   }
 }
