@@ -53,12 +53,11 @@ export default function CV() {
           </li>
         </ul>
       </nav>
-
-      <section id="about" className="w-full max-w-4xl mb-40">
+{/* <section id="about" className="w-full max-w-4xl mb-40">
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h3 className="text-xl font-semibold mb-4">ABOUT</h3>
           <p className="mb-4">
-            Hi there! I&#39;m Omar, a master&#39;s student at the&nbsp;
+            Hi there! I&#39;m Omar, an upcoming master&#39;s student at the&nbsp;
             <a
               href="https://www.ethz.ch"
               target="_blank"
@@ -68,6 +67,21 @@ export default function CV() {
               Swiss Federal Institute of Technology
             </a>
             &nbsp;(ETH Zürich), Switzerland.
+          </p>*/}
+      <section id="about" className="w-full max-w-4xl mb-40">
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <h3 className="text-xl font-semibold mb-4">ABOUT</h3>
+          <p className="mb-4">
+            Hi there! I&#39;m Omar, an undergraduate student pursuing Computer Science at&nbsp;
+            <a
+              href="https://www.unige.ch"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-red-800 hover:underline"
+            >
+              University of Geneva
+            </a>
+            &nbsp;(UNIGE), Switzerland.
           </p>
 
 
@@ -198,7 +212,7 @@ export default function CV() {
       </section>
       <section id="experiences" className="w-full max-w-4xl mb-40">
         <h2 className="text-2xl font-bold mb-4">WORK EXPERIENCES</h2>
-         <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+        {/* <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
           <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
             <a
               href="http://seculabs.ch"
@@ -227,7 +241,8 @@ export default function CV() {
             SecuLabs SA is a Swiss cybersecurity company that provides its clients with top-level expertise. It offers a personalized, close-at-hand service in the areas of technical security, governance, and compliance.
 </p>
           </div>
-        </div> 
+        </div>  */}
+         
         
 
         <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
@@ -303,7 +318,7 @@ export default function CV() {
 
       <section id="education" className="w-full max-w-4xl mb-40">
         <h2 className="text-2xl font-bold mb-4">EDUCATION</h2>
- <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+        {/*   <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
           <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
             <a
               href="https://www.ethz.ch"
@@ -332,6 +347,7 @@ export default function CV() {
           </div>
         </div> 
        
+*/}
 
         <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
           <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
