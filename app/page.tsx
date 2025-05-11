@@ -11,9 +11,11 @@ export default function HomePage() {
 
   useEffect(() => {
     // Check if the user has already been verified (via cookies/localStorage)
-    if (document.cookie.includes("verified=true")) {
+    /* removed these 2 lines to disable Turnstile (line 1)
+    if (document.cookie.includes("verified=true")) {*/
       setVerified(true);
-    }
+      /* removed these 2 lines to disable Turnstile (line 2)
+    }*/
   }, []);
 
   const handleVerify = async (token: string) => {
