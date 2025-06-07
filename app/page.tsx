@@ -39,10 +39,7 @@ export default function HomePage() {
   return (
     <main className="flex flex-col items-center p-12 bg-gray-100 text-black">
       {/* Render loader while image hasn't finished loading */}
-      {!isImageLoaded && (
-        <div className="flex items-center justify-center min-h-screen w-full fixed bg-white z-50">
-        </div>
-      )}
+      {!isImageLoaded}
         
         <>
 <header className="mb-12 text-center sm:mb-12">
