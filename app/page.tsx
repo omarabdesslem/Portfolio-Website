@@ -55,7 +55,7 @@ export default function HomePage() {
   height={150}
   className="rounded-full border-4 border-gray-300"
   loading="eager"
-  onLoadingComplete={() => setIsImageLoaded(true)}
+  onLoad={() => setIsImageLoaded(true)}
 />    {/*  */}
     <div className="mt-4">
       <h1 className="text-4xl font-bold">Omar Abdesslem</h1>
@@ -533,7 +533,7 @@ projects and collaborations within ETH Zurich&#39;s renowned academic environmen
   <p>MIT License, {new Date().getFullYear()}</p>
   </footer>
         </>
-      )}
+      )
     </main>
   );
 }
