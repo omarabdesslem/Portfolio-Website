@@ -38,10 +38,11 @@ export default function HomePage() {
   
   return (
     <main className="flex flex-col items-center p-12 bg-gray-100 text-black">
-      {/* Render loader while image hasn't finished loading */}
-      {!isImageLoaded}
-        
-        <>
+      {/* Full white screen overlay while loading */}
+      {!isImageLoaded && (
+        <div className="fixed inset-0 bg-white z-50" />
+      )}
+      <>
 <header className="mb-12 text-center sm:mb-12">
   {/* Circular Image */}
   <div className="flex flex-col items-center mb-4">
@@ -110,8 +111,8 @@ export default function HomePage() {
       &nbsp;(ETH Zürich).
     </p>
 
-    <p>
-      I strive for clean and sustainable code. I like neat design and Machine Intelligence. 
+<p className="text-md hidden sm:block">
+        I strive for clean and sustainable code. I like neat design and Machine Intelligence. 
     </p>
     <div className="mt-4 flex justify-center space-x-4">
       <a
@@ -174,7 +175,9 @@ export default function HomePage() {
       {" "}
       For this project, we used Databricks and Python to predict
       photovoltaic (PV) installation angles (orientation and tilt) for
-      over 233,000 PV plants in Switzerland. By integrating data from
+      over 233,000 PV plants in Switzerland. </p>
+      <p className="text-md hidden sm:block">
+By integrating data from
       sonnendach.ch, which provided roof information, with the Pronovo AG
       database, we employed minimum distance clustering to match PV plants
       to the nearest buildings. We used KMeans clustering to group plants
@@ -191,14 +194,20 @@ export default function HomePage() {
     <h3 className="text-xl font-semibold">
       EduAssess: Interactive Lab Feedback System
     </h3>
-    <p>
+      <p className="text-md hidden sm:block">
       Over the span of a semestre, I developed EduAssess, a software
       application aimed at helping students better understand the
       expectations of their lab assignments in the Operating Systems
-      course at UNIGE. Supervised by my professor, Chanel Guillaume, this
+      course at UNIGE. 
+      </p>
+      <p>
+      Supervised by my professor, Chanel Guillaume, this
       tool provides instant and autonomous feedback by running rigorous
       Python tests that simulate the evaluation criteria set by the
-      professor. The system minimizes the use of external libraries and is
+      professor. 
+      </p>      
+      <p className="text-md hidden sm:block">
+      The system minimizes the use of external libraries and is
       designed to handle execution differences across different
       environments.
     </p>
@@ -223,12 +232,17 @@ export default function HomePage() {
     <p>
       {" "}
       Our goal was to use Machine Learning to predict a film&#39;s sucess
-      based on the movie&#39;s metadata from imdb. We focused on
+      based on the movie&#39;s metadata from imdb. 
+      </p>
+      <p className="text-md hidden sm:block">
+      We focused on
       preprocessing by removing unnecessary information and converting
       certain features into boolean values. We also applied multiclass hot
       encoding to genres and counted occurrences in production countries,
       spoken languages, keywords, cast, and crew. Various models were
       tried, and the best fitting model was selected based on performance.
+      </p>
+      <p>
       This was in the context of our Data Mining course Project. Final
       score was 1.5
     </p>
@@ -261,7 +275,7 @@ export default function HomePage() {
         SecuLabs,
         June 2025 - Sep 2025, Lausanne, Switzerland
       </p>
-      <p>
+            <p className="text-md hidden sm:block">
       SecuLabs SA is a Swiss cybersecurity company that provides its clients with top-level expertise. It offers a personalized, close-at-hand service in the areas of technical security, governance, and compliance.
 </p>
     </div>
@@ -294,10 +308,13 @@ export default function HomePage() {
         SLRLAB, Faculty of Education, The University of Hong Kong (HKU),
         Jan 2024 - Feb 2024, Hong Kong
       </p>
-      <p>
+            <p className="text-md hidden sm:block">
         Assisted in designing and refining interactive web-based tools
         aimed at enhancing Cantonese and Mandarin language acquisition for
-        specially-abled children. Worked closely
+        specially-abled children. 
+        </p>
+              <p className="text-md hidden sm:block">
+Worked closely
         with a team of developers, educators, and language specialists,
         acquiring essential skills in software engineering principles,
         version control, collaborative development with Git, and CI/CD
@@ -327,15 +344,17 @@ export default function HomePage() {
 
     <div className="flex-1">
       <h3 className="text-xl font-semibold">Programming Teacher</h3>
-      <p>Futurekids, Sep 2022 - Aug 2023, Geneva, Switzerland</p>
-      <p>
-        Taught various programming languages and tools to children aged 5
-        to 14, including Scratch for beginners, LEGO NXT for intermediate
-        robotics projects, and Unreal Engine for advanced students.
-        Enhanced communication skills, managed diverse classes, and
-        collaborated with other educators to deliver engaging programming
-        curricula.
+                  <p>Futurekids, March 2025 - May 2025, Geneva, Switzerland</p>
+           <p className="text-md hidden sm:block">
+        Taught programming courses to young people aged 14 to 19. Promoted coding best practices.
       </p>
+      <p></p>
+      <p>Futurekids, Sept. 2022 - Aug. 2023, Geneva, Switzerland</p>
+            <p className="text-md hidden sm:block">
+        Taught various programming languages and tools to kids, including Python and Unreal Engine.
+      </p>
+
+
     </div>
   </div>
 </section>
@@ -530,7 +549,6 @@ projects and collaborations within ETH Zurich&#39;s renowned academic environmen
   <p>MIT License, {new Date().getFullYear()}</p>
   </footer>
         </>
-      )
     </main>
   );
 }
