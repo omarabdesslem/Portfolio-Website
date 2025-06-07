@@ -7,6 +7,7 @@ import Image from "next/image";
 
 export default function HomePage() {
   const [verified, setVerified] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -34,19 +35,15 @@ export default function HomePage() {
     }
   };
 
+  
   return (
     <main className="flex flex-col items-center p-12 bg-gray-100 text-black">
-      {/* Show Turnstile until verified */}
-      {!verified ? (
-        <div className="flex items-center justify-center min-h-screen">
-          <Turnstile
-            sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-            onVerify={handleVerify}
-            theme="light"
-          />
+      {/* Render loader while image hasn't finished loading */}
+      {!isImageLoaded && (
+        <div className="flex items-center justify-center min-h-screen w-full fixed bg-white z-50">
         </div>
-      ) : (
-        // Once verified, display the CV content
+      )}
+        
         <>
 <header className="mb-12 text-center sm:mb-12">
   {/* Circular Image */}
@@ -58,7 +55,7 @@ export default function HomePage() {
   height={150}
   className="rounded-full border-4 border-gray-300"
   loading="eager"
-  onLoadingComplete={() => setVerified(true)}
+  onLoadingComplete={() => setIsImageLoaded(true)}
 />    {/*  */}
     <div className="mt-4">
       <h1 className="text-4xl font-bold">Omar Abdesslem</h1>
@@ -117,8 +114,7 @@ export default function HomePage() {
     </p>
 
     <p>
-      I strive for ingenuity and skill refinement in software engineering,
-      data mining, cryptography, and web development.
+      I strive for clean and sustainable code. I like neat design and Machine Intelligence. 
     </p>
     <div className="mt-4 flex justify-center space-x-4">
       <a
