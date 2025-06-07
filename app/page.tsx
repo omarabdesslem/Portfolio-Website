@@ -28,7 +28,6 @@ export default function HomePage() {
     const data = await response.json();
     if (data.success) {
       document.cookie = "verified=true; path=/"; // Store verification status
-      setVerified(true);
       router.refresh(); // Refresh the page to display content
     } else {
       alert("Verification failed. Please try again.");
