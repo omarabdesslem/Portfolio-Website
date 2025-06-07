@@ -103,11 +103,11 @@ export default function HomePage() {
         href="https://www.ethz.ch"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-black-800 hover:underline"
+        className="text-[#003366] hover:underline"
       >
-        Swiss Federal Institute of Technology
+        Polytechnikum Zürich
       </a>
-      &nbsp;(ETH Zürich), Switzerland.
+      &nbsp;(ETH Zürich).
     </p>
 
     <p>
