@@ -52,20 +52,20 @@ export default function HomePage() {
 <header className="mb-12 text-center sm:mb-12">
   {/* Circular Image */}
   <div className="flex flex-col items-center mb-4">
-    <Image
-      src="/images/profile_picture.jpg"
-      alt="Omar Abdesslem"
-      width={150}
-      height={150}
-      className="rounded-full border-4 border-gray-300"
-      loading="eager"
-    />
-    {/*  */}
+<Image
+  src="/images/profile_picture.jpg"
+  alt="Omar Abdesslem"
+  width={150}
+  height={150}
+  className="rounded-full border-4 border-gray-300"
+  loading="eager"
+  onLoadingComplete={() => setVerified(true)}
+/>    {/*  */}
     <div className="mt-4">
       <h1 className="text-4xl font-bold">Omar Abdesslem</h1>
       <p className="text-lg">
         {/* AI Intern @SecuLabs | Msc AI @ETHZ */}
-        Software Engineer | Student at the University of Geneva & HKU
+        AI intern @SecuLabs | Msc @ETH
       </p>
       <p className="text-md">Geneva, Switzerland</p>
     </div>
@@ -100,7 +100,8 @@ export default function HomePage() {
     </li>
   </ul>
 </nav>
-{/* <section id="about" className="w-full max-w-4xl mb-40">
+{/* */}
+<section id="about" className="w-full max-w-4xl mb-40">
   <div className="bg-white p-6 rounded-lg shadow-lg">
     <h3 className="text-xl font-semibold mb-4">ABOUT</h3>
     <p className="mb-4">
@@ -114,23 +115,7 @@ export default function HomePage() {
         Swiss Federal Institute of Technology
       </a>
       &nbsp;(ETH Zürich), Switzerland.
-    </p>*/}
-<section id="about" className="w-full max-w-4xl mb-40">
-  <div className="bg-white p-6 rounded-lg shadow-lg">
-    <h3 className="text-xl font-semibold mb-4">ABOUT</h3>
-    <p className="mb-4">
-      Hi there! I&#39;m Omar, an undergraduate student pursuing Computer Science at&nbsp;
-      <a
-        href="https://www.unige.ch"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-red-800 hover:underline"
-      >
-        University of Geneva
-      </a>
-      &nbsp;(UNIGE), Switzerland.
     </p>
-
 
     <p>
       I strive for ingenuity and skill refinement in software engineering,
@@ -259,7 +244,7 @@ export default function HomePage() {
 </section>
 <section id="experiences" className="w-full max-w-4xl mb-40">
   <h2 className="text-2xl font-bold mb-4">WORK EXPERIENCES</h2>
-  {/* <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+   <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
     <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
       <a
         href="http://seculabs.ch"
@@ -288,7 +273,7 @@ export default function HomePage() {
       SecuLabs SA is a Swiss cybersecurity company that provides its clients with top-level expertise. It offers a personalized, close-at-hand service in the areas of technical security, governance, and compliance.
 </p>
     </div>
-  </div>  */}
+  </div> 
    
   
 
@@ -365,7 +350,7 @@ export default function HomePage() {
 
 <section id="education" className="w-full max-w-4xl mb-40">
   <h2 className="text-2xl font-bold mb-4">EDUCATION</h2>
-  {/*   <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+    <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
     <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
       <a
         href="https://www.ethz.ch"
@@ -394,7 +379,6 @@ projects and collaborations within ETH Zurich&#39;s renowned academic environmen
     </div>
   </div> 
  
-*/}
 
   <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
     <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
