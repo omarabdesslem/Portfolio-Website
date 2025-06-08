@@ -1,4 +1,5 @@
 "use client";
+<link rel="canonical" href="https://omar-abdesslem.ch/" />
 
 import { useState, useEffect } from "react";
 import Turnstile from "react-turnstile";
