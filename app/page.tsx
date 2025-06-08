@@ -73,19 +73,19 @@ export default function HomePage() {
         ABOUT
       </a>
     </li>
-    <li>
-      <a href="#projects" className="text-blue-900 hover:underline">
-        PROJECTS
-      </a>
-    </li>
-    <li>
+        <li>
       <a href="#experiences" className="text-blue-900 hover:underline">
         EXPERIENCES
       </a>
     </li>
-    <li className="text-center">
+        <li className="text-center">
       <a href="#education" className="text-blue-900 hover:underline">
         EDUCATION
+      </a>
+    </li>
+    <li>
+      <a href="#projects" className="text-blue-900 hover:underline">
+        PROJECTS
       </a>
     </li>
     <li className="text-center">
@@ -154,101 +154,6 @@ export default function HomePage() {
   </div>
 </section>
 
-<section id="projects" className="w-full max-w-4xl mb-40">
-  <h2 className="text-2xl font-bold mb-4">PROJECTS</h2>
-
-  <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
-    <h3 className="text-xl font-semibold">
-      SwissGrid: Prediction of PV installation angles
-    </h3>
-    <p>
-      Winner team for the Swissgrid Challenge for{" "}
-      <a
-        href="https://energydatahackdays.ch"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-900 hover:underline"
-      >
-        Energy Data Hackdays, Aargau.
-      </a>{" "}
-    </p>{" "}
-    <p>
-      {" "}
-      For this project, we used Databricks and Python to predict
-      photovoltaic (PV) installation angles (orientation and tilt) for
-      over 233,000 PV plants in Switzerland. </p>
-      <p className="text-md hidden sm:block">
-By integrating data from
-      sonnendach.ch, which provided roof information, with the Pronovo AG
-      database, we employed minimum distance clustering to match PV plants
-      to the nearest buildings. We used KMeans clustering to group plants
-      and buildings based on geographic proximity. Our predictive models
-      estimated installation angles to fill in missing data, enhancing
-      forecast accuracy for renewable energy generation. Through this
-      project, we gained experience in geospatial data clustering,
-      handling big data with Databricks, and applying predictive modeling
-      for energy forecasting.
-    </p>
-  </div>
-
-  <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
-    <h3 className="text-xl font-semibold">
-      EduAssess: Interactive Lab Feedback System
-    </h3>
-      <p className="text-md hidden sm:block">
-      Over the span of a semestre, I developed EduAssess, a software
-      application aimed at helping students better understand the
-      expectations of their lab assignments in the Operating Systems
-      course at UNIGE. 
-      </p>
-      <p>
-      Supervised by my professor, Chanel Guillaume, this
-      tool provides instant and autonomous feedback by running rigorous
-      Python tests that simulate the evaluation criteria set by the
-      professor. 
-      </p>      
-      <p className="text-md hidden sm:block">
-      The system minimizes the use of external libraries and is
-      designed to handle execution differences across different
-      environments.
-    </p>
-  </div>
-
-  <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
-    <h3 className="text-xl font-semibold">
-      Predicting Box Office Success: Analyzing Film Industry Data
-    </h3>
-    <p>
-      Along with my classmates, I Participated in the{" "}
-      <a
-        href="https://www.kaggle.com/competitions/tmdb-box-office-prediction/overview"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-900 hover:underline"
-      >
-        TMDB Box Office Prediction
-      </a>{" "}
-      Big Data competition on Kaggle.
-    </p>
-    <p>
-      {" "}
-      Our goal was to use Machine Learning to predict a film&#39;s sucess
-      based on the movie&#39;s metadata from imdb. 
-      </p>
-      <p className="text-md hidden sm:block">
-      We focused on
-      preprocessing by removing unnecessary information and converting
-      certain features into boolean values. We also applied multiclass hot
-      encoding to genres and counted occurrences in production countries,
-      spoken languages, keywords, cast, and crew. Various models were
-      tried, and the best fitting model was selected based on performance.
-      </p>
-      <p>
-      This was in the context of our Data Mining course Project. Final
-      score was 1.5
-    </p>
-  </div>
-</section>
 <section id="experiences" className="w-full max-w-4xl mb-40">
   <h2 className="text-2xl font-bold mb-4">WORK EXPERIENCES</h2>
    <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
@@ -452,6 +357,102 @@ projects and collaborations within ETH Zurich&#39;s renowned academic environmen
   </div>
 </section>
 
+
+<section id="projects" className="w-full max-w-4xl mb-40">
+  <h2 className="text-2xl font-bold mb-4">PROJECTS</h2>
+
+  <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
+    <h3 className="text-xl font-semibold">
+      SwissGrid: Prediction of PV installation angles
+    </h3>
+    <p>
+      Winner team for the Swissgrid Challenge for{" "}
+      <a
+        href="https://energydatahackdays.ch"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-900 hover:underline"
+      >
+        Energy Data Hackdays, Aargau.
+      </a>{" "}
+    </p>{" "}
+    <p>
+      {" "}
+      For this project, we used Databricks and Python to predict
+      photovoltaic (PV) installation angles (orientation and tilt) for
+      over 233,000 PV plants in Switzerland. </p>
+      <p className="text-md hidden sm:block">
+By integrating data from
+      sonnendach.ch, which provided roof information, with the Pronovo AG
+      database, we employed minimum distance clustering to match PV plants
+      to the nearest buildings. We used KMeans clustering to group plants
+      and buildings based on geographic proximity. Our predictive models
+      estimated installation angles to fill in missing data, enhancing
+      forecast accuracy for renewable energy generation. Through this
+      project, we gained experience in geospatial data clustering,
+      handling big data with Databricks, and applying predictive modeling
+      for energy forecasting.
+    </p>
+  </div>
+
+  <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
+    <h3 className="text-xl font-semibold">
+      EduAssess: Interactive Lab Feedback System
+    </h3>
+      <p className="text-md hidden sm:block">
+      Over the span of a semestre, I developed EduAssess, a software
+      application aimed at helping students better understand the
+      expectations of their lab assignments in the Operating Systems
+      course at UNIGE. 
+      </p>
+      <p>
+      Supervised by my professor, Chanel Guillaume, this
+      tool provides instant and autonomous feedback by running rigorous
+      Python tests that simulate the evaluation criteria set by the
+      professor. 
+      </p>      
+      <p className="text-md hidden sm:block">
+      The system minimizes the use of external libraries and is
+      designed to handle execution differences across different
+      environments.
+    </p>
+  </div>
+
+  <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
+    <h3 className="text-xl font-semibold">
+      Predicting Box Office Success: Analyzing Film Industry Data
+    </h3>
+    <p>
+      Along with my classmates, I Participated in the{" "}
+      <a
+        href="https://www.kaggle.com/competitions/tmdb-box-office-prediction/overview"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-900 hover:underline"
+      >
+        TMDB Box Office Prediction
+      </a>{" "}
+      Big Data competition on Kaggle.
+    </p>
+    <p>
+      {" "}
+      Our goal was to use Machine Learning to predict a film&#39;s sucess
+      based on the movie&#39;s metadata from imdb. 
+      </p>
+      <p className="text-md hidden sm:block">
+      We focused on
+      preprocessing by removing unnecessary information and converting
+      certain features into boolean values. We also applied multiclass hot
+      encoding to genres and counted occurrences in production countries,
+      spoken languages, keywords, cast, and crew. Various models were
+      tried, and the best fitting model was selected based on performance.
+      </p>
+      <p>
+      This was in the context of our Data Mining course Project. Final
+      score was 1.5
+    </p>
+  </div>
+</section>
 <section id="activities" className="w-full max-w-4xl mb-12">
   <h2 className="text-2xl font-bold mb-4">ACTIVITIES</h2>
   <div className="flex flex-wrap -mx-3">
