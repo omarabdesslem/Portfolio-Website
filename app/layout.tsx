@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Head from "next/head";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -8,6 +7,19 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Omar Abdesslem's Portfolio",
   description: "Portfolio",
+  alternates: {
+    canonical: "https://omar-abdesslem.ch",
+  },
+  openGraph: {
+    title: "Omar Abdesslem's Portfolio",
+    description: "Portfolio",
+    url: "https://omar-abdesslem.ch",
+    siteName: "Omar Abdesslem",
+    type: "website",
+  },
+  verification: {
+    google: "Kyi2izwqEC78hVNyP6sVt31wahToL7IJ92tfQWKADEE",
+  },
 };
 
 export default function RootLayout({
@@ -17,31 +29,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        {/* Basic Meta Tags */}
-        <meta name="title" content="Omar Abdesslem" />
-        <meta name="description" content="Portfolio" />
-
-        {/* Open Graph Metadata */}
-        <meta property="og:site_name" content="Omar Abdesslem" />
-        <meta property="og:title" content="Portfolio" />
-        <meta property="og:url" content="https://omar-abdesslem.ch" />
-        <meta property="og:type" content="website" />
-        
-        {/* Google Site Verification */}
-        <meta name="google-site-verification" content="Kyi2izwqEC78hVNyP6sVt31wahToL7IJ92tfQWKADEE" />
-
-        {/* JSON-LD Structured Data */}
-        <script type="application/ld+json">
+      <head>
+        {/* Optional: Add JSON-LD manually */}
+        <script type="application/ld+json" suppressHydrationWarning>
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Person",
-            "name": "Omar Abdesslem",
-            "url": "https://omar-abdesslem.ch",
-            "description": "Portfolio",
+            name: "Omar Abdesslem",
+            url: "https://omar-abdesslem.ch",
+            description: "Portfolio",
           })}
         </script>
-      </Head>
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );

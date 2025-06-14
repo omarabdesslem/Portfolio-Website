@@ -1,40 +1,11 @@
 "use client";
-<link rel="canonical" href="https://omar-abdesslem.ch/" />
-
 import { useState, useEffect } from "react";
-import Turnstile from "react-turnstile";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 export default function HomePage() {
-  const [verified, setVerified] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const router = useRouter();
-
-  useEffect(() => {
-    // Check if the user has already been verified (via cookies/localStorage)
-    /* removed these 2 lines to disable Turnstile (line 1)
-    if (document.cookie.includes("verified=true")) {*/
-      setVerified(true);
-      /* removed these 2 lines to disable Turnstile (line 2)
-    }*/
-  }, []);
-
-  const handleVerify = async (token: string) => {
-    const response = await fetch("/api/verify-turnstile", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ response: token }),
-    });
-
-    const data = await response.json();
-    if (data.success) {
-      document.cookie = "verified=true; path=/"; // Store verification status
-      router.refresh(); // Refresh the page to display content
-    } else {
-      alert("Verification failed. Please try again.");
-    }
-  };
 
   
   return (
@@ -43,7 +14,6 @@ export default function HomePage() {
       {!isImageLoaded && (
         <div className="fixed inset-0 bg-white z-50" />
       )}
-      <>
 <header className="mb-12 text-center sm:mb-12">
   {/* Circular Image */}
   <div className="flex flex-col items-center mb-4">
@@ -544,13 +514,13 @@ By integrating data from
     </div>
   </div>
 </section>
+const year = <strong>{new Date().getFullYear()}</strong>;
 
 <footer className="w-full text-center mt-12">
   <p>Omar Abdesslem</p>
   <p>Built by hand using React</p>
   <p>MIT License, {new Date().getFullYear()}</p>
   </footer>
-        </>
     </main>
   );
 }
