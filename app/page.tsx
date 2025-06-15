@@ -360,8 +360,67 @@ projects and collaborations within ETH Zurich&#39;s renowned academic environmen
 
 <section id="projects" className="w-full max-w-4xl mb-40">
   <h2 className="text-2xl font-bold mb-4">PROJECTS</h2>
+  <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
+    <h3 className="text-xl font-semibold">
+      Power Grid Load Forecasting using Machine Learning
+    </h3>
+    <p>
+      A data-driven thesis modeling Swiss electricity load using Time Series and Machine Learning. Forecasts were informed by seasonality and enriched with exogenous weather data. The project applied rigorous time series diagnostics and evaluation metrics.
+    </p>
+<div className="mt-4 flex flex-wrap justify-center gap-4 items-center">
+  <a
+    href="https://energy-forecast.netlify.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center px-3 py-1.5 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
+  >
+    Project Website
+  </a>
+</div>
+
+  </div>
 
   <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
+    <h3 className="text-xl font-semibold">
+      Predicting Box Office Success: Analyzing Film Industry Data
+    </h3>
+    <p>
+      With friends, I Participated in the{" "}
+      <a
+        href="https://www.kaggle.com/competitions/tmdb-box-office-prediction/overview"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-900 hover:underline"
+      >
+        TMDB Box Office Prediction
+      </a>{" "}
+      Big Data competition on Kaggle.
+    </p>
+    <p>
+      {" "}
+      Our goal was to use Machine Learning to predict a film&#39;s sucess
+      based on the movie&#39;s metadata from imdb. 
+      </p>
+      <p className="text-md hidden sm:block">
+      Various models were
+      tried, and the best fitting model was selected based on performance.
+      </p>
+      <p>
+       Final score was 1.5
+    </p>
+    <div className="mt-4 flex flex-wrap justify-center gap-4 items-center">
+  <a
+    href="/PDFs/Big_Data_Project_Presentation.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center px-3 py-1.5 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
+  >
+    Presentation
+  </a>
+</div>
+    
+  </div>
+    <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
     <h3 className="text-xl font-semibold">
       SwissGrid: Prediction of PV installation angles
     </h3>
@@ -382,77 +441,28 @@ projects and collaborations within ETH Zurich&#39;s renowned academic environmen
       photovoltaic (PV) installation angles (orientation and tilt) for
       over 233,000 PV plants in Switzerland. </p>
       <p className="text-md hidden sm:block">
-By integrating data from
-      sonnendach.ch, which provided roof information, with the Pronovo AG
-      database, we employed minimum distance clustering to match PV plants
-      to the nearest buildings. We used KMeans clustering to group plants
-      and buildings based on geographic proximity. Our predictive models
+     Our predictive models
       estimated installation angles to fill in missing data, enhancing
       forecast accuracy for renewable energy generation. Through this
       project, we gained experience in geospatial data clustering,
       handling big data with Databricks, and applying predictive modeling
       for energy forecasting.
     </p>
-  </div>
-
-  <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
-    <h3 className="text-xl font-semibold">
-      EduAssess: Interactive Lab Feedback System
-    </h3>
-      <p className="text-md hidden sm:block">
-      Over the span of a semestre, I developed EduAssess, a software
-      application aimed at helping students better understand the
-      expectations of their lab assignments in the Operating Systems
-      course at UNIGE. 
-      </p>
-      <p>
-      Supervised by my professor, Chanel Guillaume, this
-      tool provides instant and autonomous feedback by running rigorous
-      Python tests that simulate the evaluation criteria set by the
-      professor. 
-      </p>      
-      <p className="text-md hidden sm:block">
-      The system minimizes the use of external libraries and is
-      designed to handle execution differences across different
-      environments.
-    </p>
-  </div>
-
-  <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
-    <h3 className="text-xl font-semibold">
-      Predicting Box Office Success: Analyzing Film Industry Data
-    </h3>
-    <p>
-      Along with my classmates, I Participated in the{" "}
-      <a
-        href="https://www.kaggle.com/competitions/tmdb-box-office-prediction/overview"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-900 hover:underline"
-      >
-        TMDB Box Office Prediction
-      </a>{" "}
-      Big Data competition on Kaggle.
-    </p>
-    <p>
-      {" "}
-      Our goal was to use Machine Learning to predict a film&#39;s sucess
-      based on the movie&#39;s metadata from imdb. 
-      </p>
-      <p className="text-md hidden sm:block">
-      We focused on
-      preprocessing by removing unnecessary information and converting
-      certain features into boolean values. We also applied multiclass hot
-      encoding to genres and counted occurrences in production countries,
-      spoken languages, keywords, cast, and crew. Various models were
-      tried, and the best fitting model was selected based on performance.
-      </p>
-      <p>
-      This was in the context of our Data Mining course Project. Final
-      score was 1.5
-    </p>
+        <div className="mt-4 flex flex-wrap justify-center gap-4 items-center">
+  <a
+    href="https://energydata.bb.dribdat.cc"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center px-3 py-1.5 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
+  >
+    Challenge Link
+  </a>
+</div>
   </div>
 </section>
+
+
+
 <section id="activities" className="w-full max-w-4xl mb-12">
   <h2 className="text-2xl font-bold mb-4">ACTIVITIES</h2>
   <div className="flex flex-wrap -mx-3">
