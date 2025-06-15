@@ -182,7 +182,7 @@ export default function HomePage() {
         June 2025 - Sep 2025, Lausanne, Switzerland
       </p>
             <p className="text-md hidden sm:block">
-      SecuLabs SA is a Swiss cybersecurity company that provides its clients with top-level expertise.
+      SecuLabs SA is a Swiss cybersecurity company, active in Swiss Romandy. It collaborates with a variety of clients, including multinational companies, international organizations, and government agencies.
 </p>
     </div>
   </div> 
