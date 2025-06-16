@@ -38,7 +38,9 @@ export default function HomePage() {
 
   
   return (
+    
     <main className="flex flex-col items-center p-12 bg-gray-100 text-black">
+      <div id="top"></div>
       {/* Full white screen overlay while loading */}
       {!isImageLoaded && (
         <div className="fixed inset-0 bg-white z-50" />
@@ -69,7 +71,7 @@ export default function HomePage() {
 <nav className="mb-12">
   <ul className="flex flex-wrap justify-center space-x-4">
     <li>
-      <a href="#about" className="text-blue-900 hover:underline">
+      <a href="#empty" className="text-blue-900 hover:underline">
         ABOUT
       </a>
     </li>
@@ -79,8 +81,17 @@ export default function HomePage() {
       </a>
     </li>
         <li className="text-center">
-      <a href="#education" className="text-blue-900 hover:underline">
-        EDUCATION
+<a
+  href="#"
+  className="text-blue-900 hover:underline"
+  onClick={(e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: -12, // scroll to top minus 12px
+      behavior: 'smooth',
+    });
+  }}
+>        EDUCATION
       </a>
     </li>
     <li>
