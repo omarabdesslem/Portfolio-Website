@@ -340,7 +340,7 @@ Worked closely
 Ranked 7th in the world, 1st in Europe.
       </p>
 <p className="inline">
-  Immerged in cutting-edge projects and collaborations
+  Immersed in cutting-edge projects and collaborations
   <span className="hidden sm:inline"> within ETH Zurich&#39;s renowned academic environment.</span>
 </p>
     </div>
