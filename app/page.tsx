@@ -71,7 +71,11 @@ export default function HomePage() {
 <nav className="mb-12">
   <ul className="flex flex-wrap justify-center space-x-4">
     <li>
-      <a href="" className="text-blue-900 hover:underline">
+      <a
+  href="#"
+  className="text-blue-900 hover:underline"
+  onClick={(e) => e.preventDefault()}
+>
         ABOUT
       </a>
     </li>
