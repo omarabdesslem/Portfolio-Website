@@ -71,37 +71,69 @@ export default function HomePage() {
 <nav className="mb-12">
   <ul className="flex flex-wrap justify-center space-x-4">
     <li>
-      <a href="#empty" className="text-blue-900 hover:underline">
+      <a href="" className="text-blue-900 hover:underline">
         ABOUT
       </a>
     </li>
         <li>
-      <a href="#experiences" className="text-blue-900 hover:underline">
-        EXPERIENCES
+  <a
+    className="text-blue-900 hover:underline"
+    onClick={(e) => {
+      e.preventDefault();
+      const target = document.getElementById("experiences");
+      if (target) {
+        const yOffset = -24; // Offset
+        const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }}
+  >           EXPERIENCES
       </a>
     </li>
         <li className="text-center">
-<a
-  href="#"
-  className="text-blue-900 hover:underline"
-  onClick={(e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: -12, // scroll to top minus 12px
-      behavior: 'smooth',
-    });
-  }}
->        EDUCATION
-      </a>
+  <a
+    className="text-blue-900 hover:underline"
+    onClick={(e) => {
+      e.preventDefault();
+      const target = document.getElementById("education");
+      if (target) {
+        const yOffset = -24; // Offset
+        const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }}
+  >
+    EDUCATION
+  </a>
     </li>
     <li>
-      <a href="#projects" className="text-blue-900 hover:underline">
-        PROJECTS
+  <a
+    className="text-blue-900 hover:underline"
+    onClick={(e) => {
+      e.preventDefault();
+      const target = document.getElementById("projects");
+      if (target) {
+        const yOffset = -20; // Offset
+        const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }}
+  >        PROJECTS
       </a>
     </li>
     <li className="text-center">
-      <a href="#activities" className="text-blue-900 hover:underline">
-        ACTIVITIES
+  <a
+    className="text-blue-900 hover:underline"
+    onClick={(e) => {
+      e.preventDefault();
+      const target = document.getElementById("activities");
+      if (target) {
+        const yOffset = -20; // Offset
+        const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }}
+  >          ACTIVITIES
       </a>
     </li>
   </ul>
@@ -300,10 +332,13 @@ Worked closely
       </h3>
       <p>Msc, Machine Intelligence & Data Science</p>
       <p>Sep 2025 - June 2027</p>
-      <p>
-      Participating in cutting-edge 
-projects and collaborations within ETH Zurich&#39;s renowned academic environment.
+            <p>
+Ranked 7th in the world, 1st in Europe.
       </p>
+<p className="inline">
+  Immerged in cutting-edge projects and collaborations
+  <span className="hidden sm:inline"> within ETH Zurich&#39;s renowned academic environment.</span>
+</p>
     </div>
   </div> 
  
