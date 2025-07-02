@@ -347,7 +347,7 @@ Ranked 7th in the world, 1st in Europe.
       Various models were
       tried, and the best fitting model was selected based on performance.
       </p>
-      <p>
+      <p className="text-md hidden sm:block">
        Final root mean squared logarithmic error was 1.9 (unitless), top 30% among 1,400+ global submissions
     </p>
     <div className="mt-4 flex flex-wrap justify-center gap-4 items-center">
