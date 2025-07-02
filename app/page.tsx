@@ -50,7 +50,7 @@ export default function HomePage() {
   {/* Circular Image */}
   <div className="flex flex-col items-center mb-4">
 <Image
-  src="/images/profile_picture.jpg"
+  src="/images/profile_picture.png"
   alt="Omar Abdesslem"
   width={150}
   height={150}
@@ -79,6 +79,38 @@ export default function HomePage() {
         ABOUT
       </a>
     </li>
+            <li className="text-center">
+  <a
+    className="text-blue-900 hover:underline"
+    onClick={(e) => {
+      e.preventDefault();
+      const target = document.getElementById("education");
+      if (target) {
+        const yOffset = -38; // Offset
+        const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }}
+  >
+    EDUCATION
+  </a>
+    </li>
+
+        <li>
+  <a
+    className="text-blue-900 hover:underline"
+    onClick={(e) => {
+      e.preventDefault();
+      const target = document.getElementById("projects");
+      if (target) {
+        const yOffset = -20; // Offset
+        const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }}
+  >        PROJECTS
+      </a>
+    </li>
         <li>
   <a
     className="text-blue-900 hover:underline"
@@ -94,37 +126,7 @@ export default function HomePage() {
   >           EXPERIENCES
       </a>
     </li>
-        <li className="text-center">
-  <a
-    className="text-blue-900 hover:underline"
-    onClick={(e) => {
-      e.preventDefault();
-      const target = document.getElementById("education");
-      if (target) {
-        const yOffset = -24; // Offset
-        const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    }}
-  >
-    EDUCATION
-  </a>
-    </li>
-    <li>
-  <a
-    className="text-blue-900 hover:underline"
-    onClick={(e) => {
-      e.preventDefault();
-      const target = document.getElementById("projects");
-      if (target) {
-        const yOffset = -20; // Offset
-        const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    }}
-  >        PROJECTS
-      </a>
-    </li>
+
     <li className="text-center">
   <a
     className="text-blue-900 hover:underline"
@@ -143,7 +145,7 @@ export default function HomePage() {
   </ul>
 </nav>
 {/* */}
-<section id="about" className="w-full max-w-4xl mb-40">
+<section id="about" className="w-full max-w-4xl mb-48">
   <div className="bg-white p-6 rounded-lg shadow-lg">
     <h3 className="text-xl font-semibold mb-4">ABOUT</h3>
     <p className="mb-4">
@@ -200,118 +202,6 @@ export default function HomePage() {
     </div>
   </div>
 </section>
-
-<section id="experiences" className="w-full max-w-4xl mb-40">
-  <h2 className="text-2xl font-bold mb-4">WORK EXPERIENCES</h2>
-   <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
-    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
-      <a
-        href="http://seculabs.ch"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Image
-          src="/images/SecuLabs.png"
-          alt="SecuLabs Logo"
-          width={150}
-          height={150}
-          className="rounded-full"
-          loading="eager"
-        />
-      </a>
-    </div>
-    <div className="flex-1">
-      <h3 className="text-xl font-semibold">
-        AI Intern
-      </h3>
-      <p>
-        SecuLabs,
-        June 2025 - Sep 2025, Lausanne, Switzerland
-      </p>
-            <p className="text-md hidden sm:block">
-      SecuLabs SA is a Swiss cybersecurity company, active in Swiss Romandy. It collaborates with a variety of clients, including multinational companies, international organizations, and government agencies.
-</p>
-    </div>
-  </div> 
-   
-  
-
-  <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
-    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
-      <a
-        href="https://slrlab.edu.hku.hk/about-us/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Image
-          src="/images/hku_logo.jpg"
-          alt="SRLAB Logo"
-          width={150}
-          height={150}
-          className="rounded-full"
-          loading="eager"
-        />
-      </a>
-    </div>
-    <div className="flex-1">
-      <h3 className="text-xl font-semibold">
-        Front-end Developer Intern
-      </h3>
-      <p>
-        SLRLAB, Faculty of Education, The University of Hong Kong (HKU),
-        Jan 2024 - Feb 2024, Hong Kong
-      </p>
-            <p className="text-md hidden sm:block">
-        Assisted in designing and refining interactive web-based tools
-        aimed at enhancing Cantonese and Mandarin language acquisition for
-        specially-abled children. 
-        </p>
-              <p className="text-md hidden sm:block">
-Worked closely
-        with a team of developers, educators, and language specialists,
-        acquiring essential skills in software engineering principles,
-        version control, collaborative development with Git, and CI/CD
-        practices. Gained in-depth knowledge and practical experience with
-        the Vue.js ecosystem, including tools like Vue Router and Vuex.
-      </p>
-    </div>
-  </div>
-
-  <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
-    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
-      <a
-        href="https://www.futurekids.io"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Image
-          src="/images/futurekids_logo_1.png"
-          alt="Futurekids Logo"
-          width={150}
-          height={150}
-          className="rounded-full"
-          loading="eager"
-        />
-      </a>
-    </div>
-
-    <div className="flex-1">
-      <h3 className="text-xl font-semibold">Programming Teacher</h3>
-                  <p>Futurekids, March 2025 - May 2025, Geneva, Switzerland</p>
-           <p className="text-md hidden sm:block">
-        Taught programming courses to young people aged 14 to 19. Promoted coding best practices.
-      </p>
-      <p></p>
-      <p>Futurekids, Sept. 2022 - Aug. 2023, Geneva, Switzerland</p>
-            <p className="text-md hidden sm:block">
-        Taught various programming languages and tools to kids, including Python and Unreal Engine.
-      </p>
-
-
-    </div>
-  </div>
-</section>
-
 <section id="education" className="w-full max-w-4xl mb-40">
   <h2 className="text-2xl font-bold mb-4">EDUCATION</h2>
     <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
@@ -408,6 +298,8 @@ Ranked 7th in the world, 1st in Europe.
 </section>
 
 
+
+
 <section id="projects" className="w-full max-w-4xl mb-40">
   <h2 className="text-2xl font-bold mb-4">PROJECTS</h2>
   <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
@@ -456,7 +348,7 @@ Ranked 7th in the world, 1st in Europe.
       tried, and the best fitting model was selected based on performance.
       </p>
       <p>
-       Final score was 1.5
+       Final root mean squared logarithmic error was 1.9 (unitless), top 30% among 1,400+ global submissions
     </p>
     <div className="mt-4 flex flex-wrap justify-center gap-4 items-center">
   <a
@@ -511,6 +403,116 @@ Ranked 7th in the world, 1st in Europe.
   </div>
 </section>
 
+<section id="experiences" className="w-full max-w-4xl mb-40">
+  <h2 className="text-2xl font-bold mb-4">WORK EXPERIENCES</h2>
+   <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
+      <a
+        href="http://seculabs.ch"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Image
+          src="/images/SecuLabs.png"
+          alt="SecuLabs Logo"
+          width={150}
+          height={150}
+          className="rounded-full"
+          loading="eager"
+        />
+      </a>
+    </div>
+    <div className="flex-1">
+      <h3 className="text-xl font-semibold">
+        AI Intern
+      </h3>
+      <p>
+        SecuLabs,
+        June 2025 - Sep 2025, Lausanne, Switzerland
+      </p>
+            <p className="text-md hidden sm:block">
+      SecuLabs SA is a Swiss cybersecurity company, active in Swiss Romandy. It collaborates with a variety of clients, including multinational companies, international organizations, and government agencies.
+</p>
+    </div>
+  </div> 
+   
+  
+
+  <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
+      <a
+        href="https://slrlab.edu.hku.hk/about-us/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Image
+          src="/images/hku_logo.jpg"
+          alt="SRLAB Logo"
+          width={150}
+          height={150}
+          className="rounded-full"
+          loading="eager"
+        />
+      </a>
+    </div>
+    <div className="flex-1">
+      <h3 className="text-xl font-semibold">
+        Software Engineer - Intern
+      </h3>
+      <p>
+        SLRLAB, Faculty of Education, The University of Hong Kong (HKU),
+        Jan 2024 - Feb 2024, Hong Kong
+      </p>
+            <p className="text-md hidden sm:block">
+        Assisted in designing and refining interactive web-based tools
+        aimed at enhancing Cantonese and Mandarin language acquisition for
+        specially-abled children. 
+        </p>
+              <p className="text-md hidden sm:block">
+Worked closely
+        with a team of developers, educators, and language specialists,
+        acquiring essential skills in software engineering principles,
+        version control, collaborative development with Git, and CI/CD
+        practices. Gained in-depth knowledge and practical experience with
+        the Vue.js ecosystem.
+      </p>
+    </div>
+  </div>
+
+  <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
+      <a
+        href="https://www.futurekids.io"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Image
+          src="/images/futurekids_logo_1.png"
+          alt="Futurekids Logo"
+          width={150}
+          height={150}
+          className="rounded-full"
+          loading="eager"
+        />
+      </a>
+    </div>
+
+    <div className="flex-1">
+      <h3 className="text-xl font-semibold">Programming Instructor</h3>
+                  <p>Futurekids, March 2025 - May 2025, Geneva, Switzerland</p>
+           <p className="text-md hidden sm:block">
+        Taught programming courses to young people aged 14 to 19. Promoted coding best practices.
+      </p>
+      <p></p>
+      <p>Futurekids, Sept. 2022 - Aug. 2023, Geneva, Switzerland</p>
+            <p className="text-md hidden sm:block">
+        Taught various programming languages and tools to kids, including Python and Unreal Engine.
+      </p>
+
+
+    </div>
+  </div>
+</section>
 
 
 <section id="activities" className="w-full max-w-4xl mb-12">
