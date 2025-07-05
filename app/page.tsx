@@ -162,7 +162,7 @@ export default function HomePage() {
     </p>
 
 <p className="text-md hidden sm:block">
-        I strive for clean and sustainable code. I like neat design and Applied Machine Learning. 
+        I strive for clean and sustainable code. I like neat design and Deep Learning. 
     </p>
     <div className="mt-4 flex justify-center space-x-4">
       <a
