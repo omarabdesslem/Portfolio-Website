@@ -10,6 +10,22 @@ export default function HomePage() {
   const [verified, setVerified] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const router = useRouter();
+  const [showBackToTop, setShowBackToTop] = useState(false);
+useEffect(() => {
+  const handleScroll = () => {
+    const education = document.getElementById("education");
+    if (!education) return;
+
+    const rect = education.getBoundingClientRect();
+    const middleOfSection = rect.top + rect.height / 2;
+    const scrollY = window.scrollY + window.innerHeight / 2;
+
+    setShowBackToTop(scrollY > education.offsetTop + rect.height / 2);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
   useEffect(() => {
     // Check if the user has already been verified (via cookies/localStorage)
@@ -613,6 +629,26 @@ Worked closely
   <p>MIT License, {new Date().getFullYear()}</p>
   </footer>
         </>
+<button
+  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+  className={`hidden sm:flex fixed bottom-6 left-6 z-40 w-8 h-8 rounded-full bg-black text-white shadow-lg items-center justify-center hover:bg-gray-800 transition-opacity duration-700 ${
+    showBackToTop ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+  }`}
+  aria-label="Back to top"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-5 w-5"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+  </svg>
+</button>
+
+
     </main>
   );
 }
