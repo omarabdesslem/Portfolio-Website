@@ -242,9 +242,27 @@ useEffect(() => {
       </h3>
       <p>Msc, Machine Intelligence & Data Science</p>
       <p>Sep 2025 - June 2027</p>
-            <p>
-Ranked 7th in the world, 1st in Europe.
-      </p>
+<p>
+  Ranked{' '}
+  <a
+    href="https://www.qs.com/insights/articles/qs-world-university-rankings-results/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-black hover:underline"
+  >
+    7th in the world
+  </a>,{' '}
+  <a
+    href="https://www.qs.com/insights/articles/rankings-released-qs-world-university-rankings-europe-2025/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-black hover:underline"
+  >
+    1st in Europe
+  </a>.
+</p>
+
+
 <p className="inline">
   Immersed in cutting-edge projects and collaborations
   <span className="hidden sm:inline"> within ETH Zurich&#39;s renowned academic environment.</span>
