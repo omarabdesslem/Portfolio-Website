@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /*?utm_
-Allow: /
+Disallow: /
+
 
 Sitemap: https://omar-abdesslem.ch/sitemap.xml
 
