@@ -1,8 +1,7 @@
 "use client";
 <link rel="canonical" href="https://omar-abdesslem.ch/" />
 
-import { useState, useEffect } from "react";
-import Turnstile from "react-turnstile";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
@@ -11,7 +10,40 @@ export default function HomePage() {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const router = useRouter();
   const [showBackToTop, setShowBackToTop] = useState(false);
-useEffect(() => {
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const [tooBig, setTooBig] = useState(false);
+
+
+  useEffect(() => {
+    const checkScreen = () => {
+      if (window.innerWidth >= 1920) {
+        setTooBig(true);
+      } else {
+        setTooBig(false);
+      }
+    };
+
+    checkScreen(); // run once at start
+    window.addEventListener("resize", checkScreen);
+
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+    useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    const onScroll = () => {
+      // Show after scrolling down a bit inside the <main> scroller
+      setShowBackToTop(el.scrollTop > 200);
+    };
+
+    el.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // initialize once
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
   const handleScroll = () => {
     const education = document.getElementById("education");
     if (!education) return;
@@ -52,117 +84,80 @@ useEffect(() => {
     }
   };
 
-  
+if (tooBig) {
   return (
-    
-    <main className="flex flex-col items-center p-12 bg-gray-100 text-black">
-      <div id="top"></div>
-      {/* Full white screen overlay while loading */}
-      {!isImageLoaded && (
-        <div className="fixed inset-0 bg-white z-50" />
-      )}
-      <>
-<header className="mb-12 text-center sm:mb-12">
-  {/* Circular Image */}
-  <div className="flex flex-col items-center mb-4">
-<Image
-  src="/images/profile_picture.png"
-  alt="Omar Abdesslem"
-  width={150}
-  height={150}
-  className="rounded-full border-4 border-gray-300"
-  loading="eager"
-  onLoad={() => setIsImageLoaded(true)}
-/>    {/*  */}
-    <div className="mt-4">
-      <h1 className="text-4xl font-bold">Omar Abdesslem</h1>
-      <p className="text-lg">
-        {/* AI Intern @SecuLabs | Msc AI @ETHZ */}
-        AI intern @SecuLabs | Msc @ETH
-      </p>
-      <p className="text-md">Geneva, Switzerland</p>
+    <div className="flex items-center justify-center h-screen w-full bg-white">
+      <h1 className="text-2xl font-bold text-black text-center px-10">
+        This screen is too big. Please use a smaller window.
+      </h1>
     </div>
-  </div>
-</header>
-<nav className="mb-12">
-  <ul className="flex flex-wrap justify-center space-x-4">
-    <li>
-      <a
-  href="#"
-  className="text-blue-900 hover:underline"
-  onClick={(e) => e.preventDefault()}
+  );
+}
+
+
+  return (
+<main       ref={scrollerRef}
+className="h-screen w-full overflow-y-auto
+          snap-none md:snap-y md:snap-mandatory scroll-smooth
+          bg-white text-black
+          flex flex-col items-center
+          scroll-pt-10"
 >
-        ABOUT
-      </a>
-    </li>
-            <li className="text-center">
-  <a
+
+
+      <>
+<section id="about" className="min-h-screen md:snap-start sm:mb-12 px-10 md:px-0">
+  <div className="flex flex-col mb-14"></div>
+  <header className="mb-12 text-center sm:mb-12">
+    {/* Circular Image */}
+    <div className="flex flex-col items-center mb-4">
+  <Image
+    src="/images/profile_picture.png"
+    alt="Omar Abdesslem"
+    width={150}
+    height={150}
+    className="rounded-full border-4 border-gray-300"
+    loading="eager"
+    onLoad={() => setIsImageLoaded(true)}
+  />    {/*  */}
+      <div className="mt-4">
+        <h1 className="text-4xl font-bold">Omar Abdesslem</h1>
+        <p className="text-lg">
+          {/* AI Intern @SecuLabs | Msc AI @ETHZ */}
+          AI intern @SecuLabs | Msc @ETH
+        </p>
+        <p className="text-md">Geneva, Switzerland</p>
+      </div>
+    </div>
+  </header>
+  <nav className="mb-12">
+    <ul className="flex flex-wrap justify-center gap-4">
+      <li>
+        <a
+    href="#"
     className="text-blue-900 hover:underline"
-    onClick={(e) => {
-      e.preventDefault();
-      const target = document.getElementById("education");
-      if (target) {
-        const yOffset = -38; // Offset
-        const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    }}
+    onClick={(e) => e.preventDefault()}
   >
-    EDUCATION
-  </a>
-    </li>
+          ABOUT
+        </a>
+      </li>
+              <li className="text-center">
+  <a href="#education" className="text-blue-900 hover:underline">EDUCATION</a>
+      </li>
+          <li>
+  <a href="#projects" className="text-blue-900 hover:underline">PROJECTS</a>
+      </li>
 
-        <li>
-  <a
-    className="text-blue-900 hover:underline"
-    onClick={(e) => {
-      e.preventDefault();
-      const target = document.getElementById("projects");
-      if (target) {
-        const yOffset = -20; // Offset
-        const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    }}
-  >        PROJECTS
-      </a>
-    </li>
-        <li>
-  <a
-    className="text-blue-900 hover:underline"
-    onClick={(e) => {
-      e.preventDefault();
-      const target = document.getElementById("experiences");
-      if (target) {
-        const yOffset = -24; // Offset
-        const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    }}
-  >           EXPERIENCES
-      </a>
-    </li>
-
-    <li className="text-center">
-  <a
-    className="text-blue-900 hover:underline"
-    onClick={(e) => {
-      e.preventDefault();
-      const target = document.getElementById("activities");
-      if (target) {
-        const yOffset = -20; // Offset
-        const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    }}
-  >          ACTIVITIES
-      </a>
-    </li>
-  </ul>
-</nav>
-{/* */}
-<section id="about" className="w-full max-w-4xl mb-48">
-  <div className="bg-white p-6 rounded-lg shadow-lg">
+      <li className="text-center">
+  <a href="#experiences" className="text-blue-900 hover:underline">EXPERIENCES</a>
+        </li>
+          <li className="text-center">
+  <a href="#activities" className="text-blue-900 hover:underline">ACTIVITIES</a>
+      </li>
+    </ul>
+  </nav>
+  {/* About Section */}
+  <div className="w-full bg-white p-6 rounded-lg shadow-lg">
     <h3 className="text-xl font-semibold mb-4">ABOUT</h3>
     <p className="mb-4">
       Hi there! I&#39;m Omar, an upcoming master&#39;s student at the&nbsp;
@@ -180,12 +175,12 @@ useEffect(() => {
 <p className="text-md hidden sm:block">
         I strive for clean and sustainable code. I like neat design and Deep Learning. 
     </p>
-    <div className="mt-4 flex justify-center space-x-4">
+    <div className="mt-4 flex justify-center gap-4">
       <a
         href="https://github.com/omarabdesslem"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center px-4 py-2 bg-gray-800 text-white text-sm font-medium rounded-md hover:bg-gray-700"
+        className="inline-flex items-center px-10 py-2 bg-gray-800 text-white text-sm font-medium rounded-md hover:bg-gray-700"
       >
         <svg
           className="w-4 h-4 mr-2"
@@ -204,7 +199,7 @@ useEffect(() => {
         href="https://www.linkedin.com/in/omarff/"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center px-4 py-2 bg-blue-900 text-white text-sm font-medium rounded-md hover:bg-blue-600"
+        className="inline-flex items-center px-10 py-2 bg-blue-900 text-white text-sm font-medium rounded-md hover:bg-blue-600"
       >
         <svg
           className="w-4 h-4 mr-2"
@@ -218,9 +213,32 @@ useEffect(() => {
     </div>
   </div>
 </section>
-<section id="education" className="w-full max-w-4xl mb-40">
+
+      {/* Back to top button */}
+      <button
+        onClick={() =>
+          scrollerRef.current?.scrollTo({ top: 0, behavior: "smooth" })
+        }
+        className={`hidden sm:flex fixed bottom-6 left-6 z-40 w-8 h-8 rounded-full bg-black text-white shadow-lg items-center justify-center hover:bg-gray-800 transition-opacity duration-700 ${
+          showBackToTop ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        aria-label="Back to top"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+        </svg>
+      </button>
+
+<section id="education" className=" min-h-screen w-full max-w-4xl mb-40 h-screen md:snap-start px-10 md:px-0">
   <h2 className="text-2xl font-bold mb-4">EDUCATION</h2>
-    <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+    <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
     <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
       <a
         href="https://www.ethz.ch"
@@ -271,7 +289,7 @@ useEffect(() => {
   </div> 
  
 
-  <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+  <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
     <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
       <a
         href="https://www.unige.ch"
@@ -299,7 +317,7 @@ useEffect(() => {
     </div>
   </div>
 
-  <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+  <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
     <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
       <a
         href="https://www.hku.hk"
@@ -334,7 +352,7 @@ useEffect(() => {
 
 
 
-<section id="projects" className="w-full max-w-4xl mb-40">
+<section id="projects" className="min-h-screen w-full max-w-4xl mb-40 h-screen md:snap-start px-10 md:px-0">
   <h2 className="text-2xl font-bold mb-4">PROJECTS</h2>
   <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
     <h3 className="text-xl font-semibold">
@@ -437,9 +455,9 @@ useEffect(() => {
   </div>
 </section>
 
-<section id="experiences" className="w-full max-w-4xl mb-40">
+<section id="experiences" className="min-h-screen w-full max-w-4xl h-screen md:snap-start sm:mb-12 px-10 md:px-0">
   <h2 className="text-2xl font-bold mb-4">WORK EXPERIENCES</h2>
-   <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+   <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
     <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
       <a
         href="http://seculabs.ch"
@@ -472,7 +490,7 @@ useEffect(() => {
    
   
 
-  <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+  <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
     <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
       <a
         href="https://slrlab.edu.hku.hk/about-us/"
@@ -513,7 +531,7 @@ Worked closely
     </div>
   </div>
 
-  <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+  <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
     <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
       <a
         href="https://www.futurekids.io"
@@ -549,7 +567,7 @@ Worked closely
 </section>
 
 
-<section id="activities" className="w-full max-w-4xl mb-12">
+<section id="activities" className="w-full max-w-4xl mb-12 h-screen md:snap-start px-10 md:px-0">
   <h2 className="text-2xl font-bold mb-4">ACTIVITIES</h2>
   <div className="flex flex-wrap -mx-3">
     {/* Hackathon */}
@@ -647,24 +665,6 @@ Worked closely
   <p>MIT License, {new Date().getFullYear()}</p>
   </footer>
         </>
-<button
-  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-  className={`hidden sm:flex fixed bottom-6 left-6 z-40 w-8 h-8 rounded-full bg-black text-white shadow-lg items-center justify-center hover:bg-gray-800 transition-opacity duration-700 ${
-    showBackToTop ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-  }`}
-  aria-label="Back to top"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="h-5 w-5"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth={2}
-  >
-    <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
-  </svg>
-</button>
 
 
     </main>
