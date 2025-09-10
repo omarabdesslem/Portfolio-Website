@@ -6,15 +6,34 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Omar Abdesslem's Portfolio",
-  description: "Omar Abdesslem — Software Engineer and AI Enthusiast",
-  keywords: ["Omar Abdesslem", "portfolio", "AI engineer", "ETH Zürich", "developer"],
+  description:
+    "My full portfolio. I like building things that work ! Master's student at ETH Zürich",
+  keywords: [
+    "Omar Abdesslem",
+    "portfolio",
+    "AI engineer",
+    "ETH Zürich",
+    "machine learning",
+    "deep learning",
+    "design",
+    "sustainable code"
+  ],
   authors: [{ name: "Omar Abdesslem", url: "https://omar-abdesslem.ch" }],
   openGraph: {
     title: "Omar Abdesslem's Portfolio",
-    description: "Software Engineer and AI Intern — ETH Zürich",
+    description:
+      "My full portfolio. I like building things that work !",
     url: "https://omar-abdesslem.ch",
     siteName: "Omar Abdesslem",
     type: "website",
+    images: [
+      {
+        url: "https://omar-abdesslem.ch/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Omar Abdesslem — Portfolio",
+      },
+    ],
   },
   metadataBase: new URL("https://omar-abdesslem.ch"),
   alternates: {
@@ -24,6 +43,7 @@ export const metadata: Metadata = {
     google: "Kyi2izwqEC78hVNyP6sVt31wahToL7IJ92tfQWKADEE",
   },
 };
+
 
 export default function RootLayout({
   children,
