@@ -12,7 +12,7 @@ export default function HomePage() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const [tooBig, setTooBig] = useState(false);
-
+  const [tooSmall, setTooSmall] = useState(false);
 
   useEffect(() => {
     const checkScreen = () => {
@@ -21,12 +21,21 @@ export default function HomePage() {
       } else {
         setTooBig(false);
       }
+
+      if (window.innerWidth <= 720) {
+        setTooSmall(true);
+      } else {
+        setTooSmall(false);
+      }
+
     };
 
     checkScreen(); // run once at start
     window.addEventListener("resize", checkScreen);
 
     return () => window.removeEventListener("resize", checkScreen);
+
+
   }, []);
 
     useEffect(() => {
@@ -87,8 +96,18 @@ export default function HomePage() {
 if (tooBig) {
   return (
     <div className="flex items-center justify-center h-screen w-full bg-white">
-      <h1 className="text-2xl font-bold text-black text-center px-10">
+      <h1 className="text-xl font-bold text-black text-center px-10">
         This screen is too big. Please use a smaller window.
+      </h1>
+    </div>
+  );
+}
+
+if (tooSmall) {
+  return (
+    <div className="flex items-center justify-center h-screen w-full bg-white">
+      <h1 className="text-xl text-black text-center px-10">
+        This screen is too small. Please use a larger window. Smartphone view will be available soon :)
       </h1>
     </div>
   );
