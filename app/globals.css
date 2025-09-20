@@ -32,3 +32,9 @@ body {
     text-wrap: balance;
   }
 }
+
+/* globals.css */
+html {
+  font-size: 90%; /* 90% of browser default (usually 16px → 14.4px) */
+}
+
