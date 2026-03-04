@@ -180,7 +180,7 @@ className="h-screen w-full overflow-y-auto
         href="https://github.com/omarabdesslem"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center px-10 py-2 bg-gray-800 text-white text-sm font-medium rounded-md hover:bg-gray-700"
+        className="inline-flex items-center px-4 sm:px-6 bg-gray-800 text-white text-sm font-medium rounded-md hover:bg-gray-700"
       >
         <svg
           className="w-4 h-4 mr-2"
@@ -199,7 +199,7 @@ className="h-screen w-full overflow-y-auto
         href="https://www.linkedin.com/in/omarff/"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center px-10 py-2 bg-blue-900 text-white text-sm font-medium rounded-md hover:bg-blue-600"
+        className="inline-flex items-center px-4 sm:px-4 py-1 sm:py-2 bg-blue-900 text-white text-sm font-medium rounded-md hover:bg-blue-600"
       >
         <svg
           className="w-4 h-4 mr-2"
@@ -237,7 +237,7 @@ className="h-screen w-full overflow-y-auto
       </button>
 <div className="h-24" />
 
-<section id="education" className="w-full max-w-4xl md:snap-start px-10 md:px-0 pb-16 md:h-screen md:mb-40">
+<section id="education" className="min-h-screen w-full max-w-4xl md:snap-start px-10 md:px-0 pb-16 md:h-screen md:mb-40">
   <div className="h-24" />
 
   <h2 className="text-2xl font-bold mb-4">EDUCATION</h2>
@@ -367,7 +367,7 @@ className="h-screen w-full overflow-y-auto
     href="https://energy-forecast.netlify.app/"
     target="_blank"
     rel="noopener noreferrer"
-    className="inline-flex items-center px-3 py-1.5 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
+    className="inline-flex items-center px-3 sm:px-2 py-1 sm:py-2 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
   >
     Project Website
   </a>
@@ -569,7 +569,7 @@ Worked closely
 </section>
 
 
-<section id="activities" className="w-full max-w-4xl md:snap-start px-10 md:px-0 pb-4 md:pb-26">
+<section id="activities" className="min-h-screen w-full max-w-4xl mb-40 h-screen md:snap-start px-10 md:px-0">
   <div className="h-48" />
   <h2 className="text-2xl font-bold mb-4">ACTIVITIES</h2>
   <div className="flex flex-wrap -mx-3">
