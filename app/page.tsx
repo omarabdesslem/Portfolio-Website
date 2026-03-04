@@ -568,7 +568,7 @@ Worked closely
 </section>
 
 
-<section id="activities" className="w-full max-w-4xl mb-12 h-screen md:snap-start px-10 md:px-0">
+<section id="activities" className="w-full max-w-4xl md:snap-start px-10 md:px-0 pb-4 md:pb-26">
   <div className="h-24" />
   <h2 className="text-2xl font-bold mb-4">ACTIVITIES</h2>
   <div className="flex flex-wrap -mx-3">
@@ -661,7 +661,7 @@ Worked closely
   </div>
 </section>
 
-<footer className="w-full text-center mt-12">
+<footer className="w-full text-center py-10 text-sm mt-8">
   <p>Omar Abdesslem</p>
   <p>Built by hand using React</p>
   <p>MIT License, {new Date().getFullYear()}</p>
