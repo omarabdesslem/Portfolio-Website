@@ -93,26 +93,6 @@ export default function HomePage() {
     }
   };
 
-if (tooBig) {
-  return (
-    <div className="flex items-center justify-center h-screen w-full bg-white">
-      <h1 className="text-xl font-bold text-black text-center px-10">
-        This screen is too big. Please use a smaller window.
-      </h1>
-    </div>
-  );
-}
-
-if (tooSmall) {
-  return (
-    <div className="flex items-center justify-center h-screen w-full bg-white">
-      <h1 className="text-xl text-black text-center px-10">
-        This screen is too small. Please use a larger window. Smartphone view will be available soon :)
-      </h1>
-    </div>
-  );
-}
-
 
   return (
 <main       ref={scrollerRef}
@@ -125,7 +105,7 @@ className="h-screen w-full overflow-y-auto
 
 
       <>
-<section id="about" className="min-h-screen md:snap-start sm:mb-12 px-10 md:px-0">
+<section id="about" className="min-h-screen md:snap-start px-10 md:px-0 pb-34">
   <div className="flex flex-col mb-14"></div>
   <header className="mb-12 text-center sm:mb-12">
     {/* Circular Image */}
@@ -135,7 +115,7 @@ className="h-screen w-full overflow-y-auto
     alt="Omar Abdesslem"
     width={150}
     height={150}
-    className="rounded-full border-4 border-gray-300"
+    className="rounded-full border-4 border-gray-300 w-36 h-36 sm:w-34 sm:h-34"
     loading="eager"
     onLoad={() => setIsImageLoaded(true)}
   />    {/*  */}
@@ -149,6 +129,7 @@ className="h-screen w-full overflow-y-auto
       </div>
     </div>
   </header>
+  
   <nav className="mb-12">
     <ul className="flex flex-wrap justify-center gap-4">
       <li>
@@ -179,7 +160,7 @@ className="h-screen w-full overflow-y-auto
   <div className="w-full bg-white p-6 rounded-lg shadow-lg">
     <h3 className="text-xl font-semibold mb-4">ABOUT</h3>
     <p className="mb-4">
-      Hi there! I&#39;m Omar, an upcoming master&#39;s student at the&nbsp;
+      Hi there! I&#39;m Omar, a master&#39;s student at the&nbsp;
       <a
         href="https://www.ethz.ch"
         target="_blank"
@@ -254,8 +235,11 @@ className="h-screen w-full overflow-y-auto
           <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
         </svg>
       </button>
+<div className="h-24" />
 
-<section id="education" className=" min-h-screen w-full max-w-4xl mb-40 h-screen md:snap-start px-10 md:px-0">
+<section id="education" className="w-full max-w-4xl md:snap-start px-10 md:px-0 pb-16 md:h-screen md:mb-40">
+  <div className="h-24" />
+
   <h2 className="text-2xl font-bold mb-4">EDUCATION</h2>
     <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
     <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
@@ -367,8 +351,6 @@ className="h-screen w-full overflow-y-auto
     </div>
   </div>
 </section>
-
-
 
 
 <section id="projects" className="min-h-screen w-full max-w-4xl mb-40 h-screen md:snap-start px-10 md:px-0">
@@ -587,6 +569,7 @@ Worked closely
 
 
 <section id="activities" className="w-full max-w-4xl mb-12 h-screen md:snap-start px-10 md:px-0">
+  <div className="h-24" />
   <h2 className="text-2xl font-bold mb-4">ACTIVITIES</h2>
   <div className="flex flex-wrap -mx-3">
     {/* Hackathon */}
