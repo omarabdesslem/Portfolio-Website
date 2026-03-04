@@ -361,7 +361,7 @@ className="h-screen w-full overflow-y-auto
     </p>
 <div className="mt-4 flex flex-wrap justify-center gap-4 items-center">
   <a
-    href="https://energy-forecast.netlify.app/"
+    href="https://energy-forecasts.netlify.app"
     target="_blank"
     rel="noopener noreferrer"
     className="inline-flex items-center px-3 sm:px-2 py-1 sm:py-2 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
