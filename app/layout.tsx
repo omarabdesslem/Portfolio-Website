@@ -42,6 +42,10 @@ export const metadata: Metadata = {
   verification: {
     google: "Kyi2izwqEC78hVNyP6sVt31wahToL7IJ92tfQWKADEE",
   },
+    other: {
+    viewport: "width=device-width, initial-scale=1.0, minimum-scale=1",
+  },
+
 };
 
 
@@ -51,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-white">
+    <html lang="en" className="bg-white min-w-[100%]">
       <body className={`${inter.className} bg-white`}>{children}</body>
     </html>
   );
