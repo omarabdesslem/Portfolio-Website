@@ -457,6 +457,7 @@ className="h-screen w-full overflow-y-auto
 </section>
 
 <section id="experiences" className="min-h-screen w-full max-w-4xl h-screen md:snap-start sm:mb-12 px-10 md:px-0">
+    <div className="h-14" />
   <h2 className="text-2xl font-bold mb-4">WORK EXPERIENCES</h2>
    <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
     <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
@@ -569,7 +570,7 @@ Worked closely
 
 
 <section id="activities" className="w-full max-w-4xl md:snap-start px-10 md:px-0 pb-4 md:pb-26">
-  <div className="h-24" />
+  <div className="h-48" />
   <h2 className="text-2xl font-bold mb-4">ACTIVITIES</h2>
   <div className="flex flex-wrap -mx-3">
     {/* Hackathon */}
