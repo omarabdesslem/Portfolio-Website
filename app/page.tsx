@@ -258,7 +258,7 @@ className="h-screen w-full overflow-y-auto
     <div className="flex-1">
       <h3 className="text-xl font-semibold">ETH Zürich
       </h3>
-      <p>Msc, Machine Intelligence & Data Science</p>
+      <p>Msc, Machine Intelligence & Cybersecurity</p>
       <p>Sep 2025 - June 2027</p>
 <p>
   Ranked{' '}
@@ -282,8 +282,7 @@ className="h-screen w-full overflow-y-auto
 
 
 <p className="inline">
-  Immersed in cutting-edge projects and collaborations
-  <span className="hidden sm:inline"> within ETH Zurich&#39;s renowned academic environment.</span>
+  <span className="hidden sm:inline">   Courses: Computational Intelligence Lab, Advanced Systems Lab, Large Language Models, Big Data, Network Security, Artificial Intelligence</span>
 </p>
     </div>
   </div> 
