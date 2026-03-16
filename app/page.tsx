@@ -349,7 +349,7 @@ className="h-screen w-full overflow-y-auto
 </section>
 
 
-<section id="projects" className="min-h-screen w-full max-w-4xl md:snap-start px-10 md:px-0 pt-16 pb-32 md:pb-16" style={{ marginBottom: "30vh" }}>
+<section id="projects" className="min-h-screen w-full max-w-4xl md:snap-start px-10 md:px-0 pt-16 pb-32 md:pb-16" style={{ marginBottom: "45vh" }}>
   <h2 className="text-2xl font-bold mb-4">PROJECTS</h2>
   <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
     <h3 className="text-xl font-semibold">
@@ -452,7 +452,7 @@ className="h-screen w-full overflow-y-auto
   </div>
 </section>
 
-<section id="experiences" className="min-h-screen w-full max-w-4xl md:snap-start px-10 md:px-0 pt-16 pb-32 md:pb-16" style={{ marginBottom: "35vh" }}>
+<section id="experiences" className="min-h-screen w-full max-w-4xl md:snap-start px-10 md:px-0 pt-16 pb-32 md:pb-16" style={{ marginBottom: "30vh" }}>
   <h2 className="text-2xl font-bold mb-4">WORK EXPERIENCES</h2>
    <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
     <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
