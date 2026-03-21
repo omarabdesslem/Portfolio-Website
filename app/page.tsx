@@ -111,7 +111,7 @@ className="h-screen w-full overflow-y-auto
     {/* Circular Image */}
     <div className="flex flex-col items-center mb-4">
   <Image
-    src="/images/profile_picture.png"
+    src="/images/profile_picture.jpg"
     alt="Omar Abdesslem"
     width={150}
     height={150}
