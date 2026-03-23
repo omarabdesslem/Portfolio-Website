@@ -373,7 +373,7 @@ className="h-screen w-full overflow-y-auto
 
     <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
       <h3 className="text-xl font-semibold">
-        AI-Powered Log Anomaly Detection for Cybersecurity
+      AI-based Log Anomaly / Cyber-attack Detection for SOCs
       </h3>
   <p className="text-md">
     During half of my summer internship, I customized and deployed an inhouse trained LLM for real-time Security log analysis.
