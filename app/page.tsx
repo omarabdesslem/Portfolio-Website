@@ -350,7 +350,7 @@ className="h-screen w-full overflow-y-auto
 
 
 <section id="projects" className="min-h-screen w-full max-w-4xl md:snap-start px-10 md:px-0 pt-16 pb-32 md:pb-16" style={{ marginBottom: "45vh" }}>
-  <h2 className="text-2xl font-bold mb-4">PROJECTS</h2>
+  <h2 className="text-2xl font-bold mb-4">SELECTED PROJECTS</h2>
   <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
     <h3 className="text-xl font-semibold">
       Power Grid Load Forecasting using Machine Learning
@@ -371,44 +371,27 @@ className="h-screen w-full overflow-y-auto
 
   </div>
 
-  <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
-    <h3 className="text-xl font-semibold">
-      Predicting Box Office Success: Analyzing Film Industry Data
-    </h3>
-    <p>
-      With friends, I Participated in the{" "}
-      <a
-        href="https://www.kaggle.com/competitions/tmdb-box-office-prediction/overview"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-900 hover:underline"
-      >
-        TMDB Box Office Prediction
-      </a>{" "}
-      Big Data competition on Kaggle.
-    </p>
-    <p>
-      {" "}
-      Our goal was to use Machine Learning to predict a film&#39;s sucess
-      based on the movie&#39;s metadata from imdb. 
-      </p>
-      <p className="text-md hidden sm:block">
-      Various models were
-      tried, and the best fitting model was selected based on performance.
-      </p>
-      <p className="text-md hidden sm:block">
-       Final root mean squared logarithmic error was 1.9 (unitless), top 30% among 1,400+ global submissions
-    </p>
-    <div className="mt-4 flex flex-wrap justify-center gap-4 items-center">
-  <a
-    href="/PDFs/Big_Data_Project_Presentation.pdf"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center px-3 py-1.5 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
-  >
-    Presentation
-  </a>
-</div>
+    <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
+      <h3 className="text-xl font-semibold">
+        AI-Powered Log Anomaly Detection for Cybersecurity
+      </h3>
+  <p className="text-md">
+    During half of my summer internship, I customized and deployed an inhouse trained LLM for real-time Security log analysis.
+    <span className="hidden sm:inline">
+      {" "}Modified prompts and output normalization; added Phi-4 severity ratings; built Streamlit dashboard for real-time monitoring. Achieved up to 99.98% accuracy; end-to-end inference on 10k logs in ~2 minutes with minimal resource overhead; near real-time processing on a single GPU.
+    </span>
+  </p>
+       
+      <div className="mt-4 flex flex-wrap justify-center gap-4 items-center">
+        <a
+          href="/PDFs/Seculabs_Internship_Report.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-3 py-1.5 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
+        >
+          Full Report
+        </a>
+      </div>
     
   </div>
     <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
@@ -429,7 +412,7 @@ className="h-screen w-full overflow-y-auto
     <p>
       {" "}
       For this project, we used Databricks and Python to predict
-      photovoltaic (PV) installation angles (orientation and tilt) for
+      photovoltaic (PV) installation angles for
       over 233,000 PV plants in Switzerland. </p>
       <p className="text-md hidden sm:block">
      Our predictive models
