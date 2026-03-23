@@ -409,19 +409,13 @@ className="h-screen w-full overflow-y-auto
         Energy Data Hackdays, Aargau.
       </a>{" "}
     </p>{" "}
-    <p>
-      {" "}
-      For this project, we used Databricks and Python to predict
-      photovoltaic (PV) installation angles for
-      over 233,000 PV plants in Switzerland. </p>
-      <p className="text-md hidden sm:block">
-     Our predictive models
-      estimated installation angles to fill in missing data, enhancing
-      forecast accuracy for renewable energy generation. Through this
-      project, we gained experience in geospatial data clustering,
-      handling big data with Databricks, and applying predictive modeling
-      for energy forecasting.
-    </p>
+  <p>
+    For this project, we used Databricks and Python to predict installation angles for 233k+ PV plants in Switzerland.
+    <span className="hidden sm:inline">
+      {" "}We applied geospatial clustering and predictive modeling to estimate missing data and improve renewable energy forecasts.
+
+    </span>
+  </p>
         <div className="mt-4 flex flex-wrap justify-center gap-4 items-center">
   <a
     href="https://energydata.bb.dribdat.cc"
