@@ -363,7 +363,7 @@ className="h-screen w-full overflow-y-auto
     href="https://energy-forecasts.netlify.app"
     target="_blank"
     rel="noopener noreferrer"
-    className="inline-flex items-center px-3 sm:px-2 py-1 sm:py-2 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
+		    className="inline-flex h-8 min-w-[7.5rem] items-center justify-center px-3 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
   >
     Project Website
   </a>
@@ -387,7 +387,7 @@ className="h-screen w-full overflow-y-auto
           href="/PDFs/Seculabs_Internship_Report.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center px-3 py-1.5 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
+		          className="inline-flex h-8 min-w-[7.5rem] items-center justify-center px-3 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
         >
           Full Report
         </a>
@@ -421,7 +421,7 @@ className="h-screen w-full overflow-y-auto
     href="https://energydata.bb.dribdat.cc"
     target="_blank"
     rel="noopener noreferrer"
-    className="inline-flex items-center px-3 py-1.5 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
+		    className="inline-flex h-8 min-w-[7.5rem] items-center justify-center px-3 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
   >
     Challenge Link
   </a>
