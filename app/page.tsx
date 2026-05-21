@@ -96,18 +96,18 @@ export default function HomePage() {
 
   return (
 <main       ref={scrollerRef}
-className="h-screen w-full overflow-y-auto
-          snap-none md:snap-y md:snap-mandatory scroll-smooth
+className="h-dvh w-full overflow-y-auto
+          snap-none lg:snap-y lg:snap-mandatory scroll-smooth
           bg-white text-black
           flex flex-col items-center
-          scroll-pt-10"
+          scroll-pt-8 sm:scroll-pt-12"
 >
 
 
       <>
-<section id="about" className="min-h-screen md:h-screen w-full max-w-4xl md:snap-start px-10 md:px-0 pt-16 pb-16">
-  <div className="flex flex-col mb-14"></div>
-  <header className="mb-12 text-center sm:mb-12">
+<section id="about" className="min-h-dvh w-full max-w-4xl lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 pt-16 pb-12 sm:pt-20 sm:pb-16 lg:py-16">
+  <div className="flex flex-col mb-8 sm:mb-12 lg:mb-10"></div>
+  <header className="mb-12 text-center sm:mb-14 lg:mb-12">
     {/* Circular Image */}
     <div className="flex flex-col items-center mb-4">
   <Image
@@ -115,23 +115,23 @@ className="h-screen w-full overflow-y-auto
     alt="Omar Abdesslem"
     width={150}
     height={150}
-    className="rounded-full border-4 border-gray-300 w-36 h-36 sm:w-34 sm:h-34"
+	    className="rounded-full border-4 border-gray-300 w-32 h-32 sm:w-36 sm:h-36 lg:w-36 lg:h-36"
     loading="eager"
     onLoad={() => setIsImageLoaded(true)}
   />    {/*  */}
       <div className="mt-4">
-        <h1 className="text-4xl font-bold">Omar Abdesslem</h1>
-        <p className="text-lg">
+	        <h1 className="text-3xl sm:text-4xl lg:text-4xl font-bold">Omar Abdesslem</h1>
+	        <p className="text-lg sm:text-xl lg:text-lg">
           {/* AI Intern @SecuLabs | Msc AI @ETHZ */}
           AI intern @SecuLabs | Msc @ETH
         </p>
-        <p className="text-md">Geneva, Switzerland</p>
+	        <p className="text-base sm:text-lg lg:text-base">Geneva, Switzerland</p>
       </div>
     </div>
   </header>
   
-  <nav className="mb-12">
-    <ul className="flex flex-wrap justify-center gap-4">
+  <nav className="mb-16 sm:mb-20 lg:mb-12">
+    <ul className="flex flex-wrap justify-center gap-x-6 gap-y-4 text-base sm:text-lg lg:text-base">
       <li>
         <a
     href="#"
@@ -157,9 +157,9 @@ className="h-screen w-full overflow-y-auto
     </ul>
   </nav>
   {/* About Section */}
-  <div className="w-full bg-white p-6 rounded-lg shadow-lg">
-    <h3 className="text-xl font-semibold mb-4">ABOUT</h3>
-    <p className="mb-4">
+  <div className="w-full bg-white p-8 lg:p-6 rounded-lg shadow-lg">
+    <h3 className="text-xl sm:text-2xl lg:text-xl font-semibold mb-6 lg:mb-4">ABOUT</h3>
+    <p className="mb-6 text-lg sm:text-xl lg:mb-4 lg:text-base leading-relaxed">
       Hi there! I&#39;m Omar, a master&#39;s student at the&nbsp;
       <a
         href="https://www.ethz.ch"
@@ -172,15 +172,15 @@ className="h-screen w-full overflow-y-auto
       &nbsp;(ETH Zürich).
     </p>
 
-<p className="text-md hidden sm:block">
+<p className="hidden sm:block sm:text-lg lg:text-base">
         I strive for clean and sustainable code. I like neat design and Deep Learning. 
     </p>
-    <div className="mt-4 flex justify-center gap-4">
+    <div className="mt-6 flex justify-center gap-6 lg:mt-4 lg:gap-4">
       <a
         href="https://github.com/omarabdesslem"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center px-4 sm:px-6 bg-gray-800 text-white text-sm font-medium rounded-md hover:bg-gray-700"
+	        className="inline-flex items-center px-5 py-2 sm:px-6 bg-gray-800 text-white text-sm sm:text-base lg:text-sm font-medium rounded-md hover:bg-gray-700"
       >
         <svg
           className="w-4 h-4 mr-2"
@@ -199,7 +199,7 @@ className="h-screen w-full overflow-y-auto
         href="https://www.linkedin.com/in/omarff/"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center px-4 sm:px-4 py-1 sm:py-2 bg-blue-900 text-white text-sm font-medium rounded-md hover:bg-blue-600"
+        className="inline-flex items-center px-5 py-2 sm:px-6 bg-blue-900 text-white text-sm sm:text-base lg:text-sm font-medium rounded-md hover:bg-blue-600"
       >
         <svg
           className="w-4 h-4 mr-2"
@@ -236,7 +236,7 @@ className="h-screen w-full overflow-y-auto
         </svg>
       </button>
 
-<section id="education" className="min-h-screen md:h-screen w-full max-w-4xl md:snap-start px-10 md:px-0 pt-16 pb-16" style={{ marginBottom: "35vh" }}>
+<section id="education" className="w-full max-w-4xl lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 py-12 sm:py-16 lg:py-20">
   <h2 className="text-2xl font-bold mb-4">EDUCATION</h2>
     <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
     <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
@@ -349,7 +349,7 @@ className="h-screen w-full overflow-y-auto
 </section>
 
 
-<section id="projects" className="min-h-screen w-full max-w-4xl md:snap-start px-10 md:px-0 pt-16 pb-32 md:pb-16" style={{ marginBottom: "45vh" }}>
+<section id="projects" className="w-full max-w-4xl lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 py-12 sm:py-16 lg:py-20">
   <h2 className="text-2xl font-bold mb-4">SELECTED PROJECTS</h2>
   <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
     <h3 className="text-xl font-semibold">
@@ -371,7 +371,7 @@ className="h-screen w-full overflow-y-auto
 
   </div>
 
-    <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
+	    <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
       <h3 className="text-xl font-semibold">
       AI-based Log Anomaly / Cyber-attack Detection for SOCs
       </h3>
@@ -394,7 +394,7 @@ className="h-screen w-full overflow-y-auto
       </div>
     
   </div>
-    <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
+	    <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
     <h3 className="text-xl font-semibold">
       SwissGrid: Prediction of PV installation angles
     </h3>
@@ -429,7 +429,7 @@ className="h-screen w-full overflow-y-auto
   </div>
 </section>
 
-<section id="experiences" className="min-h-screen w-full max-w-4xl md:snap-start px-10 md:px-0 pt-16 pb-32 md:pb-16" style={{ marginBottom: "30vh" }}>
+<section id="experiences" className="w-full max-w-4xl lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 pt-8 pb-12 sm:pt-10 sm:pb-16 lg:pt-12 lg:pb-20">
   <h2 className="text-2xl font-bold mb-4">WORK EXPERIENCES</h2>
    <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
     <div className="flex-shrink-0 w-[5.4rem] h-[5.4rem] sm:w-[7.2rem] sm:h-[7.2rem] mx-auto sm:mx-0">
@@ -559,11 +559,11 @@ incident forecasting, fine-tuned and benchmarked local enterprise LLMs.</p>
 </section>
 
 
-<section id="activities" className="min-h-screen w-full max-w-4xl md:snap-start px-10 md:px-0 pt-16 pb-32 md:pb-16" style={{ marginBottom: "130vh" }}>
+<section id="activities" className="w-full max-w-4xl lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 py-12 sm:py-16 lg:py-20">
   <h2 className="text-2xl font-bold mb-4">ACTIVITIES</h2>
-  <div className="flex flex-wrap -mx-3">
+  <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-6">
     {/* Hackathon */}
-    <div className="w-full md:w-1/2 px-3 mb-6">
+    <div className="w-full">
       <a
         href="https://www.datascience.ch/event/sdsc-hackathons-ord-for-the-sciences"
         target="_blank"
@@ -574,7 +574,7 @@ incident forecasting, fine-tuned and benchmarked local enterprise LLMs.</p>
           alt="ORD-for-the-sciences"
           width={1300}
           height={1000}
-          className="w-[400px] h-[240px] rounded-lg object-cover"
+	          className="aspect-[5/3] w-full rounded-lg object-cover"
           loading="eager"
         />
       </a>
@@ -584,7 +584,7 @@ incident forecasting, fine-tuned and benchmarked local enterprise LLMs.</p>
       <p>{/* Energy Hackathon */}</p>
     </div>
     {/* Hackathon */}
-    <div className="w-full md:w-1/2 px-3 mb-6">
+    <div className="w-full">
       <a
         href="https://energydatahackdays.ch"
         target="_blank"
@@ -595,7 +595,7 @@ incident forecasting, fine-tuned and benchmarked local enterprise LLMs.</p>
           alt="Energy Hackathon"
           width={1300}
           height={1000}
-          className="w-[400px] h-[240px] rounded-lg object-cover"
+	          className="aspect-[5/3] w-full rounded-lg object-cover"
           loading="eager"
         />
       </a>
@@ -606,7 +606,7 @@ incident forecasting, fine-tuned and benchmarked local enterprise LLMs.</p>
     </div>
 
     {/* Hackathon */}
-    <div className="w-full md:w-1/2 px-3 mb-6">
+    <div className="w-full">
       <a
         href="https://opendata.ch/events/glamhack24/"
         target="_blank"
@@ -617,7 +617,7 @@ incident forecasting, fine-tuned and benchmarked local enterprise LLMs.</p>
           alt="Swiss Open Cultural Data Hackathon, Luzern"
           width={1300}
           height={1000}
-          className="w-[400px] h-[240px] rounded-lg object-cover"
+	          className="aspect-[5/3] w-full rounded-lg object-cover"
           loading="eager"
         />
       </a>
@@ -628,7 +628,7 @@ incident forecasting, fine-tuned and benchmarked local enterprise LLMs.</p>
     </div>
 
     {/* French Society */}
-    <div className="w-full md:w-1/2 px-3 mb-6">
+    <div className="w-full">
       <a
         href="https://www.instagram.com/hkufrancais/"
         target="_blank"
@@ -639,7 +639,7 @@ incident forecasting, fine-tuned and benchmarked local enterprise LLMs.</p>
           alt="Activity Logo"
           width={1300}
           height={1000}
-          className="w-[400px] h-[240px] rounded-lg object-cover"
+	          className="aspect-[5/3] w-full rounded-lg object-cover"
           loading="eager"
         />
       </a>
