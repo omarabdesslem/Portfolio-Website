@@ -239,7 +239,7 @@ className="h-dvh w-full overflow-y-auto
 <section id="education" className="w-full max-w-4xl lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 py-12 sm:py-16 lg:py-20">
   <h2 className="text-2xl font-bold mb-4">EDUCATION</h2>
     <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
-    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
+    <div className="flex-shrink-0 w-[5.4rem] h-[5.4rem] sm:w-[7.2rem] sm:h-[7.2rem] mx-auto sm:mx-0">
       <a
         href="https://www.ethz.ch"
         target="_blank"
@@ -289,7 +289,7 @@ className="h-dvh w-full overflow-y-auto
  
 
   <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
-    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
+    <div className="flex-shrink-0 w-[5.4rem] h-[5.4rem] sm:w-[7.2rem] sm:h-[7.2rem] mx-auto sm:mx-0">
       <a
         href="https://www.unige.ch"
         target="_blank"
@@ -317,7 +317,7 @@ className="h-dvh w-full overflow-y-auto
   </div>
 
   <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
-    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
+    <div className="flex-shrink-0 w-[5.4rem] h-[5.4rem] sm:w-[7.2rem] sm:h-[7.2rem] mx-auto sm:mx-0">
       <a
         href="https://www.hku.hk"
         target="_blank"
@@ -463,7 +463,7 @@ className="h-dvh w-full overflow-y-auto
   </div> 
 
    <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
-    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
+    <div className="flex-shrink-0 w-[5.4rem] h-[5.4rem] sm:w-[7.2rem] sm:h-[7.2rem] mx-auto sm:mx-0">
       <a
         href="http://seculabs.ch"
         target="_blank"
@@ -496,7 +496,7 @@ incident forecasting, fine-tuned and benchmarked local enterprise LLMs.</p>
   
 
   <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
-    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
+    <div className="flex-shrink-0 w-[5.4rem] h-[5.4rem] sm:w-[7.2rem] sm:h-[7.2rem] mx-auto sm:mx-0">
       <a
         href="https://slrlab.edu.hku.hk/about-us/"
         target="_blank"
@@ -527,7 +527,7 @@ incident forecasting, fine-tuned and benchmarked local enterprise LLMs.</p>
   </div>
 
   <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
-    <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
+    <div className="flex-shrink-0 w-[5.4rem] h-[5.4rem] sm:w-[7.2rem] sm:h-[7.2rem] mx-auto sm:mx-0">
       <a
         href="https://www.futurekids.io"
         target="_blank"
