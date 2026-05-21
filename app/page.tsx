@@ -260,25 +260,7 @@ className="h-dvh w-full overflow-y-auto
       </h3>
       <p>Msc, Machine Intelligence & Cybersecurity</p>
       <p>Sep 2025 - June 2027</p>
-<p>
-  Ranked{' '}
-  <a
-    href="https://www.qs.com/insights/articles/qs-world-university-rankings-results/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-black hover:underline"
-  >
-    7th in the world
-  </a>,{' '}
-  <a
-    href="https://www.qs.com/insights/articles/rankings-released-qs-world-university-rankings-europe-2025/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-black hover:underline"
-  >
-    1st in Europe
-  </a>.
-</p>
+<p></p>
 
 
 <p className="inline">
