@@ -491,17 +491,7 @@ on-site processing within secure Swiss datacenters.</p>
         Jan 2024 - Feb 2024, Hong Kong
       </p>
             <p className="text-md hidden sm:block">
-        Assisted in designing and refining interactive web-based tools
-        aimed at enhancing Cantonese and Mandarin language acquisition for
-        specially-abled children. 
-        </p>
-              <p className="text-md hidden sm:block">
-Worked closely
-        with a team of developers, educators, and language specialists,
-        acquiring essential skills in software engineering principles,
-        version control, collaborative development with Git, and CI/CD
-        practices. Gained in-depth knowledge and practical experience with
-        the Vue.js ecosystem.
+        Built and refined Vue.js learning tools for Cantonese and Mandarin language acquisition, working with developers and educators in a Git-based workflow.
       </p>
     </div>
   </div>
