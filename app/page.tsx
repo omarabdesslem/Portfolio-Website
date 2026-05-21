@@ -489,8 +489,7 @@ className="h-screen w-full overflow-y-auto
       </p>
             <p className="text-md hidden sm:block">
 Delivered privacy-preserving, on-prem SOC ML/DL pipelines using anonymized logs for anomaly detection and
-incident forecasting, fine-tuned and benchmarked local enterprise LLM translation/transcription with PII redaction and
-on-site processing within secure Swiss datacenters.</p>
+incident forecasting, fine-tuned and benchmarked local enterprise LLMs.</p>
     </div>
   </div> 
    
@@ -518,7 +517,7 @@ on-site processing within secure Swiss datacenters.</p>
         Software Engineer - Intern
       </h3>
       <p>
-        SLRLAB, Faculty of Education, The University of Hong Kong (HKU),
+        SLRLAB, The University of Hong Kong (HKU),
         Jan 2024 - Feb 2024, Hong Kong
       </p>
             <p className="text-md hidden sm:block">
@@ -545,17 +544,14 @@ on-site processing within secure Swiss datacenters.</p>
       </a>
     </div>
 
-    <div className="flex-1">
-      <h3 className="text-xl font-semibold">Programming Instructor</h3>
-                  <p>Futurekids, March 2025 - May 2025, Geneva, Switzerland</p>
-           <p className="text-md hidden sm:block">
-        Taught programming courses to young people aged 14 to 19. Promoted coding best practices.
-      </p>
-      <p></p>
-      <p>Futurekids, Sept. 2022 - Aug. 2023, Geneva, Switzerland</p>
-            <p className="text-md hidden sm:block">
-        Taught various programming languages and tools to kids, including Python and Unreal Engine.
-      </p>
+	    <div className="flex-1">
+	      <h3 className="text-xl font-semibold">Programming Instructor</h3>
+	      <p>
+	        Futurekids, Sept. 2022 - Aug. 2023 and March 2025 - May 2025, Geneva, Switzerland
+	      </p>
+	      <p className="text-md hidden sm:block">
+	        Taught programming fundamentals, Python, and Unreal Engine to students aged 14 to 19.
+	      </p>
 
 
     </div>
