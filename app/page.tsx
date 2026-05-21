@@ -432,6 +432,37 @@ className="h-screen w-full overflow-y-auto
 <section id="experiences" className="min-h-screen w-full max-w-4xl md:snap-start px-10 md:px-0 pt-16 pb-32 md:pb-16" style={{ marginBottom: "30vh" }}>
   <h2 className="text-2xl font-bold mb-4">WORK EXPERIENCES</h2>
    <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
+    <div className="flex-shrink-0 w-[5.4rem] h-[5.4rem] sm:w-[7.2rem] sm:h-[7.2rem] mx-auto sm:mx-0">
+      <a
+        href="https://www.psi.ch/en"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Image
+          src="/images/paul_scherrer_institut_logo.jpeg"
+          alt="Paul Scherrer Institute Logo"
+          width={150}
+          height={150}
+          className="rounded-full"
+          loading="eager"
+        />
+      </a>
+    </div>
+    <div className="flex-1">
+      <h3 className="text-xl font-semibold">
+        Research Intern
+      </h3>
+      <p>
+        Paul Scherrer Institute,
+        June 2026 - Current, Villigen, Switzerland
+      </p>
+            <p className="text-md hidden sm:block">
+        Machine learning, diffusion models, and computer vision for proton therapy at PSI.
+      </p>
+    </div>
+  </div> 
+
+   <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
     <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
       <a
         href="http://seculabs.ch"
