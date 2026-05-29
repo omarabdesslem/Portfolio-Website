@@ -123,7 +123,7 @@ className="h-dvh w-full overflow-y-auto
 	        <h1 className="text-3xl sm:text-4xl lg:text-4xl font-bold">Omar Abdesslem</h1>
 	        <p className="text-lg sm:text-xl lg:text-lg">
           {/* AI Intern @SecuLabs | Msc AI @ETHZ */}
-          AI intern @SecuLabs | Msc @ETH
+          Computer Vision @PSI | Msc @ETH
         </p>
 	        <p className="text-base sm:text-lg lg:text-base">Geneva, Switzerland</p>
       </div>
