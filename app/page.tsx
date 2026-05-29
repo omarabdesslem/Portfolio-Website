@@ -125,7 +125,7 @@ className="h-dvh w-full overflow-y-auto
           {/* AI Intern @SecuLabs | Msc AI @ETHZ */}
           Computer Vision @PSI | Msc @ETH
         </p>
-	        <p className="text-base sm:text-lg lg:text-base">Geneva, Switzerland</p>
+	        <p className="text-base sm:text-lg lg:text-base">Zürich, Switzerland</p>
       </div>
     </div>
   </header>
