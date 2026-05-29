@@ -439,7 +439,7 @@ className="h-dvh w-full overflow-y-auto
         June 2026 - Current, Villigen, Switzerland
       </p>
             <p className="text-md hidden sm:block">
-        Machine learning, diffusion models, and computer vision for proton therapy at PSI.
+        Machine learning and computer vision for proton therapy at PSI.
       </p>
     </div>
   </div> 
