@@ -1,15 +1,21 @@
 "use client";
-<link rel="canonical" href="https://omar-abdesslem.ch/" />
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
+const navItems = [
+  { label: "About", href: "#about" },
+  { label: "Education", href: "#education" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experiences", href: "#experiences" },
+  { label: "Activities", href: "#activities" },
+];
+
 export default function HomePage() {
   const [verified, setVerified] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const router = useRouter();
-  const [showBackToTop, setShowBackToTop] = useState(false);
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const [tooBig, setTooBig] = useState(false);
   const [tooSmall, setTooSmall] = useState(false);
@@ -38,36 +44,6 @@ export default function HomePage() {
 
   }, []);
 
-    useEffect(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
-
-    const onScroll = () => {
-      // Show after scrolling down a bit inside the <main> scroller
-      setShowBackToTop(el.scrollTop > 200);
-    };
-
-    el.addEventListener("scroll", onScroll, { passive: true });
-    onScroll(); // initialize once
-    return () => el.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-  const handleScroll = () => {
-    const education = document.getElementById("education");
-    if (!education) return;
-
-    const rect = education.getBoundingClientRect();
-    const middleOfSection = rect.top + rect.height / 2;
-    const scrollY = window.scrollY + window.innerHeight / 2;
-
-    setShowBackToTop(scrollY > education.offsetTop + rect.height / 2);
-  };
-
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
-
   useEffect(() => {
     // Check if the user has already been verified (via cookies/localStorage)
     /* removed these 2 lines to disable Turnstile (line 1)
@@ -93,6 +69,28 @@ export default function HomePage() {
     }
   };
 
+  const handleNavClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    event.preventDefault();
+
+    const scroller = scrollerRef.current;
+    const target = document.querySelector<HTMLElement>(href);
+    if (!scroller || !target) return;
+
+    const navOffset = 64;
+    const scrollerTop = scroller.getBoundingClientRect().top;
+    const targetTop = target.getBoundingClientRect().top;
+
+    scroller.scrollTo({
+      top: scroller.scrollTop + targetTop - scrollerTop - navOffset,
+      behavior: "smooth",
+    });
+
+    window.history.replaceState(null, "", href);
+  };
+
 
   return (
 <main       ref={scrollerRef}
@@ -100,12 +98,32 @@ className="h-dvh w-full overflow-y-auto
           snap-none lg:snap-y lg:snap-mandatory scroll-smooth
           bg-white text-black
           flex flex-col items-center
-          scroll-pt-8 sm:scroll-pt-12"
+          scroll-pt-20 sm:scroll-pt-24"
 >
 
 
       <>
-<section id="about" className="min-h-dvh w-full max-w-4xl lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 pt-16 pb-12 sm:pt-20 sm:pb-16 lg:py-16">
+<nav className="sticky top-0 z-50 w-full border-b border-black/10 bg-white/80 backdrop-blur-xl">
+  <div className="mx-auto flex h-12 w-full max-w-5xl items-center justify-center px-5 sm:px-8">
+    <div className="flex min-w-0 items-center justify-center overflow-x-auto">
+      <ul className="flex items-center gap-1 whitespace-nowrap text-sm font-medium text-black/75 sm:gap-3">
+        {navItems.map((item) => (
+          <li key={item.href}>
+            <a
+              href={item.href}
+              onClick={(event) => handleNavClick(event, item.href)}
+              className="inline-flex h-8 items-center rounded-md px-2 transition-colors hover:bg-black/5 hover:text-black sm:px-3"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section id="about" className="min-h-dvh w-full max-w-4xl lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 pt-12 pb-12 sm:pt-16 sm:pb-16 lg:pt-14 lg:pb-16">
   <div className="flex flex-col mb-8 sm:mb-12 lg:mb-10"></div>
   <header className="mb-12 text-center sm:mb-14 lg:mb-12">
     {/* Circular Image */}
@@ -130,32 +148,6 @@ className="h-dvh w-full overflow-y-auto
     </div>
   </header>
   
-  <nav className="mb-16 sm:mb-20 lg:mb-12">
-    <ul className="flex flex-wrap justify-center gap-x-6 gap-y-4 text-base sm:text-lg lg:text-base">
-      <li>
-        <a
-    href="#"
-    className="text-blue-900 hover:underline"
-    onClick={(e) => e.preventDefault()}
-  >
-          ABOUT
-        </a>
-      </li>
-              <li className="text-center">
-  <a href="#education" className="text-blue-900 hover:underline">EDUCATION</a>
-      </li>
-          <li>
-  <a href="#projects" className="text-blue-900 hover:underline">PROJECTS</a>
-      </li>
-
-      <li className="text-center">
-  <a href="#experiences" className="text-blue-900 hover:underline">EXPERIENCES</a>
-        </li>
-          <li className="text-center">
-  <a href="#activities" className="text-blue-900 hover:underline">ACTIVITIES</a>
-      </li>
-    </ul>
-  </nav>
   {/* About Section */}
   <div className="w-full bg-white p-8 lg:p-6 rounded-lg shadow-lg">
     <h3 className="text-xl sm:text-2xl lg:text-xl font-semibold mb-6 lg:mb-4">ABOUT</h3>
@@ -173,7 +165,7 @@ className="h-dvh w-full overflow-y-auto
     </p>
 
 <p className="hidden sm:block sm:text-lg lg:text-base">
-        I strive for clean and sustainable code. I like neat design and Deep Learning. 
+        I strive for clean and sustainable code. I like neat design and secure and reliable systems. 
     </p>
     <div className="mt-6 flex justify-center gap-6 lg:mt-4 lg:gap-4">
       <a
@@ -213,28 +205,6 @@ className="h-dvh w-full overflow-y-auto
     </div>
   </div>
 </section>
-
-      {/* Back to top button */}
-      <button
-        onClick={() =>
-          scrollerRef.current?.scrollTo({ top: 0, behavior: "smooth" })
-        }
-        className={`hidden sm:flex fixed bottom-6 left-6 z-40 w-8 h-8 rounded-full bg-black text-white shadow-lg items-center justify-center hover:bg-gray-800 transition-opacity duration-700 ${
-          showBackToTop ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-        aria-label="Back to top"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
-        </svg>
-      </button>
 
 <section id="education" className="w-full max-w-4xl lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 py-12 sm:py-16 lg:py-20">
   <h2 className="text-2xl font-bold mb-4">EDUCATION</h2>
@@ -471,7 +441,7 @@ className="h-dvh w-full overflow-y-auto
       </p>
             <p className="text-md hidden sm:block">
 Delivered privacy-preserving, on-prem SOC ML/DL pipelines using anonymized logs for anomaly detection and
-incident forecasting, fine-tuned and benchmarked local enterprise LLMs.</p>
+incident forecasting, fine-tuned and benchmarked enterprise LLMs.</p>
     </div>
   </div> 
    
