@@ -336,12 +336,12 @@ className="h-dvh w-full overflow-y-auto
        
       <div className="mt-4 flex flex-wrap justify-center gap-4 items-center">
         <a
-          href="/PDFs/Seculabs_Internship_Report.pdf"
+          href="https://polimo.netlify.app"
           target="_blank"
           rel="noopener noreferrer"
 		          className="inline-flex h-8 min-w-[7.5rem] items-center justify-center px-3 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
         >
-          Full Report
+          Live Demo
         </a>
       </div>
     
