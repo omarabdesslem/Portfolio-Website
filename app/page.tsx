@@ -341,7 +341,7 @@ className="h-dvh w-full overflow-y-auto
           rel="noopener noreferrer"
 		          className="inline-flex h-8 min-w-[7.5rem] items-center justify-center px-3 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
         >
-          Live Demo
+          More Info
         </a>
       </div>
     
