@@ -206,7 +206,7 @@ className="h-dvh w-full overflow-y-auto
   </div>
 </section>
 
-<section id="education" className="w-full max-w-4xl lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 py-12 sm:py-16 lg:py-20">
+<section id="education" className="min-h-dvh w-full max-w-4xl lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 py-12 sm:py-16 lg:py-20">
   <h2 className="text-2xl font-bold mb-4">EDUCATION</h2>
     <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
     <div className="flex-shrink-0 w-[5.4rem] h-[5.4rem] sm:w-[7.2rem] sm:h-[7.2rem] mx-auto sm:mx-0">
@@ -301,7 +301,7 @@ className="h-dvh w-full overflow-y-auto
 </section>
 
 
-<section id="projects" className="w-full max-w-4xl lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 py-12 sm:py-16 lg:py-20">
+<section id="projects" className="min-h-dvh w-full max-w-4xl lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 py-12 sm:py-16 lg:py-20">
   <h2 className="text-2xl font-bold mb-4">SELECTED PROJECTS</h2>
   <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
     <h3 className="text-xl font-semibold">
@@ -381,7 +381,7 @@ className="h-dvh w-full overflow-y-auto
   </div>
 </section>
 
-<section id="experiences" className="w-full max-w-4xl lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 pt-8 pb-12 sm:pt-10 sm:pb-16 lg:pt-12 lg:pb-20">
+<section id="experiences" className="min-h-dvh w-full max-w-4xl lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 pt-8 pb-12 sm:pt-10 sm:pb-16 lg:pt-12 lg:pb-20">
   <h2 className="text-2xl font-bold mb-4">WORK EXPERIENCES</h2>
    <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
     <div className="flex-shrink-0 w-[5.4rem] h-[5.4rem] sm:w-[7.2rem] sm:h-[7.2rem] mx-auto sm:mx-0">
@@ -511,7 +511,7 @@ incident forecasting, fine-tuned and benchmarked enterprise LLMs.</p>
 </section>
 
 
-<section id="activities" className="w-full max-w-4xl lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 py-12 sm:py-16 lg:py-20">
+<section id="activities" className="min-h-dvh w-full max-w-4xl lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 py-12 sm:py-16 lg:py-20">
   <h2 className="text-2xl font-bold mb-4">ACTIVITIES</h2>
   <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-6">
     {/* Hackathon */}
