@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
+import { selectedProjects } from "./projects/project-data";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -302,82 +304,34 @@ className="h-dvh w-full overflow-y-auto
 
 
 <section id="projects" className="min-h-dvh shrink-0 w-full max-w-4xl mb-16 sm:mb-20 lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 py-12 sm:py-16 lg:py-20">
-  <h2 className="text-2xl font-bold mb-4">SELECTED PROJECTS</h2>
-  <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
-    <h3 className="text-xl font-semibold">
-      Power Grid Load Forecasting using Machine Learning
-    </h3>
-    <p>
-      A data-driven thesis modeling Swiss electricity load using Time Series and Machine Learning. Forecasts were informed by seasonality and enriched with exogenous weather data. The project applied rigorous time series diagnostics and evaluation metrics.
-    </p>
-<div className="mt-4 flex flex-wrap justify-center gap-4 items-center">
-  <a
-    href="https://energy-forecasts.netlify.app"
-    target="_blank"
-    rel="noopener noreferrer"
-		    className="inline-flex h-8 min-w-[7.5rem] items-center justify-center px-3 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
-  >
-    Project Website
-  </a>
-</div>
-
+  <div className="mb-4 flex items-center justify-between">
+    <h2 className="text-2xl font-bold">SELECTED PROJECTS</h2>
+    <Link
+      href="/projects"
+      aria-label="View all projects"
+      title="View all projects"
+      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/20 text-xl font-medium transition-colors hover:bg-black hover:text-white"
+    >
+      +
+    </Link>
   </div>
-
-	    <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
-      <h3 className="text-xl font-semibold">
-      AI-based Log Anomaly / Cyber-attack Detection for SOCs
-      </h3>
-  <p className="text-md">
-    During half of my summer internship, I customized and deployed an inhouse trained LLM for real-time Security log analysis.
-    <span className="hidden sm:inline">
-      {" "}Modified prompts and output normalization; added Phi-4 severity ratings; built Streamlit dashboard for real-time monitoring. Achieved up to 99.98% accuracy; end-to-end inference on 10k logs in ~2 minutes with minimal resource overhead; near real-time processing on a single GPU.
-    </span>
-  </p>
-       
-      <div className="mt-4 flex flex-wrap justify-center gap-4 items-center">
-        <a
-          href="https://polimo.netlify.app"
-          target="_blank"
-          rel="noopener noreferrer"
-		          className="inline-flex h-8 min-w-[7.5rem] items-center justify-center px-3 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
-        >
-          More Info
-        </a>
-      </div>
-    
-  </div>
-	    <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
-    <h3 className="text-xl font-semibold">
-      SwissGrid: Prediction of PV installation angles
-    </h3>
-    <p>
-      Winner team for the Swissgrid Challenge for{" "}
-      <a
-        href="https://energydatahackdays.ch"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-900 hover:underline"
-      >
-        Energy Data Hackdays, Aargau.
-      </a>{" "}
-    </p>{" "}
-  <p>
-    For this project, we used Databricks and Python to predict installation angles for 233k+ PV plants in Switzerland.
-    <span className="hidden sm:inline">
-      {" "}We applied geospatial clustering and predictive modeling to estimate missing data and improve renewable energy forecasts.
-
-    </span>
-  </p>
-        <div className="mt-4 flex flex-wrap justify-center gap-4 items-center">
-  <a
-    href="https://energydata.bb.dribdat.cc"
-    target="_blank"
-    rel="noopener noreferrer"
-		    className="inline-flex h-8 min-w-[7.5rem] items-center justify-center px-3 bg-black text-white text-xs font-medium rounded-md hover:bg-gray-800 transition"
-  >
-    Challenge Link
-  </a>
-</div>
+  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    {selectedProjects.map((project) => (
+      <article key={project.title} className="flex min-h-48 flex-col rounded-lg bg-white p-5 shadow-lg">
+        <h3 className="text-xl font-semibold">{project.title}</h3>
+        <p className="mt-2 flex-1 text-sm leading-relaxed">{project.summary}</p>
+        <div className="mt-4">
+          <a
+            href={project.href}
+            target={project.external ? "_blank" : undefined}
+            rel={project.external ? "noopener noreferrer" : undefined}
+            className="inline-flex h-8 min-w-[7.5rem] items-center justify-center rounded-md bg-black px-3 text-xs font-medium text-white transition hover:bg-gray-800"
+          >
+            {project.linkLabel}
+          </a>
+        </div>
+      </article>
+    ))}
   </div>
 </section>
 
