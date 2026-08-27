@@ -10,7 +10,7 @@ export default function ProjectsPage() {
         <div className="mb-8 flex items-center justify-between gap-4">
           <h1 className="text-2xl font-bold">PROJECTS</h1>
           <Link
-            href="/"
+            href="/#projects"
             className="inline-flex h-9 items-center rounded-md border border-black/15 px-3 text-sm font-medium transition-colors hover:bg-black/5"
           >
             Back to home

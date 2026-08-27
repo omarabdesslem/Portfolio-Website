@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -71,24 +71,46 @@ export default function HomePage() {
     }
   };
 
+  const scrollToSection = useCallback(
+    (href: string, behavior: ScrollBehavior) => {
+      const scroller = scrollerRef.current;
+      const target = document.getElementById(href.slice(1));
+      if (!scroller || !target) return;
+
+      const navOffset = 64;
+      const scrollerTop = scroller.getBoundingClientRect().top;
+      const targetTop = target.getBoundingClientRect().top;
+
+      scroller.scrollTo({
+        top: scroller.scrollTop + targetTop - scrollerTop - navOffset,
+        behavior,
+      });
+    },
+    []
+  );
+
+  useEffect(() => {
+    const scrollToHash = () => {
+      if (!window.location.hash) return;
+
+      window.requestAnimationFrame(() => {
+        scrollToSection(window.location.hash, "auto");
+      });
+    };
+
+    scrollToHash();
+    window.addEventListener("hashchange", scrollToHash);
+
+    return () => window.removeEventListener("hashchange", scrollToHash);
+  }, [scrollToSection]);
+
   const handleNavClick = (
     event: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
     event.preventDefault();
 
-    const scroller = scrollerRef.current;
-    const target = document.querySelector<HTMLElement>(href);
-    if (!scroller || !target) return;
-
-    const navOffset = 64;
-    const scrollerTop = scroller.getBoundingClientRect().top;
-    const targetTop = target.getBoundingClientRect().top;
-
-    scroller.scrollTo({
-      top: scroller.scrollTop + targetTop - scrollerTop - navOffset,
-      behavior: "smooth",
-    });
+    scrollToSection(href, "smooth");
 
     window.history.replaceState(null, "", href);
   };
