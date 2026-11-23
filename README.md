@@ -1,31 +1,38 @@
-# About
+# Omar Abdesslem — Portfolio
 
-This is a personal working website built using React and deployed on **Netlify**. The site showcases my career and life progression, while providing a seamless and secure experience.
+A personal portfolio focused on machine learning, computer vision and efficient computing. Built with Next.js and React for deployment on the existing Netlify setup.
 
-## Table of Contents
+The homepage introduces selected work, research questions, technical notes, experience, education and contact details. The project archive has accessible topic filters, and each project has a dedicated page with its approach and original sources. Three short technical notes explore the reasoning behind the work, with links to the source reports and case studies. FastGATr and depth-estimation pages include report-backed result comparisons. Reported results include their evaluation context; the security demo and conceptual forecasting diagram are labelled accordingly.
 
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [License](#license)
+## Development
 
-## Features
+Requires Node.js 20 or newer.
 
-- Seamless experience on both mobile and desktop.
-- Flexbox layout for dynamic arrangement of content.
-- External links to LinkedIn, various organisations, and hackathons.
-- Enhanced security with **Cloudflare Turnstile** CAPTCHA to prevent bot traffic.
-- Protected with **AWS WAF (Web Application Firewall)** to filter and monitor HTTP requests.
-- **CloudFront** integration for improved content delivery speed and caching.
+```sh
+npm ci --legacy-peer-deps
+npm run dev
+```
 
-## Technologies Used
+Visit `http://localhost:3000`. To check the production build and preview it:
 
-- **React**: JavaScript library for building user interfaces.
-- **CSS**: Custom styles for layout and design.
-- **Netlify**: For continuous deployment and hosting.
-- **AWS WAF**: Provides a set of security rules to protect the site from malicious traffic.
-- **AWS CloudFront**: Used for content delivery with low-latency and high transfer speeds, caching static assets.
-- **Cloudflare Turnstile**: A CAPTCHA service to ensure only real users access the site, with a frontend and backend integration for verification.
+```sh
+npm run build
+npm start
+```
+
+## Content
+
+- `app/page.tsx`: introduction, background, research questions and contact.
+- `app/projects/project-data.ts`: project descriptions, results, sources and tags.
+- `app/projects/[slug]/page.tsx`: generated project pages.
+- `app/notes/note-data.ts` and `app/notes/[slug]/page.tsx`: technical notes and reading pages.
+- `app/components/`: shared navigation, project visuals and interactive project filters and accessible result comparisons.
+- `app/globals.css`: responsive styles and reduced-motion support.
+- `public/PDFs/`: original project reports and presentations.
+- `app/layout.tsx`, `app/opengraph-image.tsx`, `app/sitemap.ts`: page metadata, social preview and sitemap.
+
+The public portfolio is rendered without a CAPTCHA. The existing Turnstile verification API remains available separately. The site uses system fonts and does not fetch fonts during the build.
 
 ## License
 
-This project is licensed under the **MIT License**. See the LICENSE file for more details.
+[MIT](LICENSE).

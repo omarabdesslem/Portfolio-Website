@@ -1,592 +1,143 @@
-"use client";
-
-import { useState, useEffect, useRef, useCallback } from "react";
-import { useRouter } from "next/navigation";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { selectedProjects } from "./projects/project-data";
+import { SiteHeader, SiteFooter } from "./components/site-header";
+import { ProjectVisual } from "./components/project-visual";
+import { allProjects, featuredProjects } from "./projects/project-data";
+import { notes } from "./notes/note-data";
 
-const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Education", href: "#education" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experiences", href: "#experiences" },
-  { label: "Activities", href: "#activities" },
+export const metadata: Metadata = {
+  title: { absolute: "Omar Abdesslem — Machine learning, vision & efficient computing" },
+  alternates: { canonical: "/" },
+};
+
+const experience = [
+  {
+    organization: "Paul Scherrer Institute",
+    role: "Research Intern · Computer Vision",
+    period: "Jun 2026 – present",
+    description: "Machine learning and computer vision for proton therapy. Working where visual understanding meets scientific applications.",
+    href: "https://www.psi.ch/en",
+  },
+  {
+    organization: "SecuLabs",
+    role: "AI Intern · Cybersecurity",
+    period: "Jun – Sep 2025",
+    description: "Built on-premises pipelines for security-log analysis and anomaly detection, and fine-tuned and benchmarked enterprise LLMs.",
+    href: "https://seculabs.ch",
+  },
+  {
+    organization: "SLRLAB, University of Hong Kong",
+    role: "Software Engineering Intern",
+    period: "Jan – Feb 2024",
+    description: "Built Vue.js learning tools for Cantonese and Mandarin, collaborating with developers and educators.",
+    href: "https://slrlab.edu.hku.hk/about-us/",
+  },
+  {
+    organization: "Futurekids",
+    role: "Programming Instructor",
+    period: "2022 – 2023 · 2025",
+    description: "Taught programming fundamentals, Python and Unreal Engine to students aged 14 to 19.",
+    href: "https://www.futurekids.io",
+  },
 ];
 
 export default function HomePage() {
-  const [verified, setVerified] = useState(false);
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
-  const router = useRouter();
-  const scrollerRef = useRef<HTMLDivElement | null>(null);
-  const [tooBig, setTooBig] = useState(false);
-  const [tooSmall, setTooSmall] = useState(false);
-
-  useEffect(() => {
-    const checkScreen = () => {
-      if (window.innerWidth >= 1920) {
-        setTooBig(true);
-      } else {
-        setTooBig(false);
-      }
-
-      if (window.innerWidth <= 720) {
-        setTooSmall(true);
-      } else {
-        setTooSmall(false);
-      }
-
-    };
-
-    checkScreen(); // run once at start
-    window.addEventListener("resize", checkScreen);
-
-    return () => window.removeEventListener("resize", checkScreen);
-
-
-  }, []);
-
-  useEffect(() => {
-    // Check if the user has already been verified (via cookies/localStorage)
-    /* removed these 2 lines to disable Turnstile (line 1)
-    if (document.cookie.includes("verified=true")) {*/
-      setVerified(true);
-      /* removed these 2 lines to disable Turnstile (line 2)
-    }*/
-  }, []);
-
-  const handleVerify = async (token: string) => {
-    const response = await fetch("/api/verify-turnstile", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ response: token }),
-    });
-
-    const data = await response.json();
-    if (data.success) {
-      document.cookie = "verified=true; path=/"; // Store verification status
-      router.refresh(); // Refresh the page to display content
-    } else {
-      alert("Verification failed. Please try again.");
-    }
-  };
-
-  const scrollToSection = useCallback(
-    (href: string, behavior: ScrollBehavior) => {
-      const scroller = scrollerRef.current;
-      const target = document.getElementById(href.slice(1));
-      if (!scroller || !target) return;
-
-      const navOffset = 64;
-      const scrollerTop = scroller.getBoundingClientRect().top;
-      const targetTop = target.getBoundingClientRect().top;
-
-      scroller.scrollTo({
-        top: scroller.scrollTop + targetTop - scrollerTop - navOffset,
-        behavior,
-      });
-    },
-    []
-  );
-
-  useEffect(() => {
-    const scrollToHash = () => {
-      if (!window.location.hash) return;
-
-      window.requestAnimationFrame(() => {
-        scrollToSection(window.location.hash, "auto");
-      });
-    };
-
-    scrollToHash();
-    window.addEventListener("hashchange", scrollToHash);
-
-    return () => window.removeEventListener("hashchange", scrollToHash);
-  }, [scrollToSection]);
-
-  const handleNavClick = (
-    event: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
-    event.preventDefault();
-
-    scrollToSection(href, "smooth");
-
-    window.history.replaceState(null, "", href);
-  };
-
-
   return (
-<main       ref={scrollerRef}
-className="h-dvh w-full overflow-y-auto
-          snap-none lg:snap-y lg:snap-mandatory scroll-smooth
-          bg-white text-black
-          flex flex-col items-center
-          scroll-pt-20 sm:scroll-pt-24"
->
+    <div className="site-shell" id="top">
+      <SiteHeader home />
+      <main id="main-content">
+        <section className="hero page-container" aria-labelledby="hero-title">
+          <div className="hero-copy">
+            <p className="section-label">Machine learning · Computer vision · Efficient computing</p>
+            <h1 className="serif-heading" id="hero-title">Ideas into models.<br />Models into <em>practice.</em></h1>
+            <p className="hero-intro">Hi, I’m Omar. I explore how machine learning can make sense of the world — and how to make it work efficiently.</p>
+            <p className="hero-context">I’m a computer science master’s student at ETH Zürich, working on computer vision for proton therapy at the Paul Scherrer Institute.</p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="#work">Explore my work</a>
+              <a className="text-link" href="#contact">Get in touch</a>
+            </div>
+          </div>
+          <figure className="hero-portrait">
+            <div className="portrait-frame">
+              <Image src="/images/profile_picture.jpg" alt="Omar Abdesslem smiling outdoors" width={855} height={855} priority sizes="(max-width: 680px) 75vw, 310px" />
+              <span className="portrait-mark" aria-hidden="true">oa.</span>
+            </div>
+            <figcaption><span>Omar Abdesslem</span><span>Zürich, Switzerland</span></figcaption>
+          </figure>
+        </section>
 
-
-      <>
-<nav className="sticky top-0 z-50 w-full border-b border-black/10 bg-white/80 backdrop-blur-xl">
-  <div className="mx-auto flex h-12 w-full max-w-5xl items-center justify-center px-5 sm:px-8">
-    <div className="flex min-w-0 items-center justify-center overflow-x-auto">
-      <ul className="flex items-center gap-1 whitespace-nowrap text-sm font-medium text-black/75 sm:gap-3">
-        {navItems.map((item) => (
-          <li key={item.href}>
-            <a
-              href={item.href}
-              onClick={(event) => handleNavClick(event, item.href)}
-              className="inline-flex h-8 items-center rounded-md px-2 transition-colors hover:bg-black/5 hover:text-black sm:px-3"
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<section id="about" className="min-h-dvh shrink-0 w-full max-w-4xl mb-16 sm:mb-20 lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 pt-12 pb-12 sm:pt-16 sm:pb-16 lg:pt-14 lg:pb-16">
-  <div className="flex flex-col mb-8 sm:mb-12 lg:mb-10"></div>
-  <header className="mb-12 text-center sm:mb-14 lg:mb-12">
-    {/* Circular Image */}
-    <div className="flex flex-col items-center mb-4">
-  <Image
-    src="/images/profile_picture.jpg"
-    alt="Omar Abdesslem"
-    width={150}
-    height={150}
-	    className="rounded-full border-4 border-gray-300 w-32 h-32 sm:w-36 sm:h-36 lg:w-36 lg:h-36"
-    loading="eager"
-    onLoad={() => setIsImageLoaded(true)}
-  />    {/*  */}
-      <div className="mt-4">
-	        <h1 className="text-3xl sm:text-4xl lg:text-4xl font-bold">Omar Abdesslem</h1>
-	        <p className="text-lg sm:text-xl lg:text-lg">
-          {/* AI Intern @SecuLabs | Msc AI @ETHZ */}
-          Computer Vision @PSI | Msc @ETH
-        </p>
-	        <p className="text-base sm:text-lg lg:text-base">Zürich, Switzerland</p>
-      </div>
-    </div>
-  </header>
-  
-  {/* About Section */}
-  <div className="w-full bg-white p-8 lg:p-6 rounded-lg shadow-lg">
-    <h3 className="text-xl sm:text-2xl lg:text-xl font-semibold mb-6 lg:mb-4">ABOUT</h3>
-    <p className="mb-6 text-lg sm:text-xl lg:mb-4 lg:text-base leading-relaxed">
-      Hi there! I&#39;m Omar, a master&#39;s student at the&nbsp;
-      <a
-        href="https://www.ethz.ch"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-[#003366] hover:underline"
-      >
-        Polytechnikum Zürich
-      </a>
-      &nbsp;(ETH Zürich).
-    </p>
-
-<p className="hidden sm:block sm:text-lg lg:text-base">
-        I strive for clean and sustainable code. I like neat design and secure and reliable systems. 
-    </p>
-    <div className="mt-6 flex justify-center gap-6 lg:mt-4 lg:gap-4">
-      <a
-        href="https://github.com/omarabdesslem"
-        target="_blank"
-        rel="noopener noreferrer"
-	        className="inline-flex items-center px-5 py-2 sm:px-6 bg-gray-800 text-white text-sm sm:text-base lg:text-sm font-medium rounded-md hover:bg-gray-700"
-      >
-        <svg
-          className="w-4 h-4 mr-2"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fillRule="evenodd"
-            d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.17-1.1-1.49-1.1-1.49-.9-.62.07-.6.07-.6 1 .07 1.53 1.04 1.53 1.04.9 1.53 2.34 1.09 2.91.84.09-.66.35-1.1.64-1.35-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.7-.1-.26-.45-1.28.1-2.66 0 0 .84-.27 2.75 1.03A9.61 9.61 0 0112 6.8c.85.003 1.71.115 2.52.337 1.9-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.66.64.71 1.03 1.61 1.03 2.7 0 3.86-2.34 4.7-4.57 4.95.36.31.69.92.69 1.85v2.75c0 .27.18.58.69.48A10.004 10.004 0 0022 12c0-5.52-4.48-10-10-10z"
-            clipRule="evenodd"
-          />
-        </svg>
-        GitHub
-      </a>
-      <a
-        href="https://www.linkedin.com/in/omarff/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center px-5 py-2 sm:px-6 bg-blue-900 text-white text-sm sm:text-base lg:text-sm font-medium rounded-md hover:bg-blue-600"
-      >
-        <svg
-          className="w-4 h-4 mr-2"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.5c-1 0-1.8-.82-1.8-1.8s.8-1.8 1.8-1.8 1.8.82 1.8 1.8-.8 1.8-1.8 1.8zm13.5 11.5h-3v-5.5c0-3.03-3.5-2.79-3.5 0v5.5h-3v-10h3v1.32c1.4-2.58 7-2.77 7 2.47v6.21z" />
-        </svg>
-        LinkedIn
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="education" className="min-h-dvh shrink-0 w-full max-w-4xl mb-16 sm:mb-20 lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 py-12 sm:py-16 lg:py-20">
-  <h2 className="text-2xl font-bold mb-4">EDUCATION</h2>
-    <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
-    <div className="flex-shrink-0 w-[5.4rem] h-[5.4rem] sm:w-[7.2rem] sm:h-[7.2rem] mx-auto sm:mx-0">
-      <a
-        href="https://www.ethz.ch"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Image
-          src="/images/eth.svg"
-          alt="ETHZ Logo"
-          width={150}
-          height={150}
-          className="rounded-full"
-          loading="eager"
-        />
-      </a>
-    </div>
-    <div className="flex-1">
-      <h3 className="text-xl font-semibold">ETH Zürich
-      </h3>
-      <p>Msc, Machine Intelligence & Cybersecurity</p>
-      <p>Sep 2025 - June 2027</p>
-<p></p>
-
-
-<p className="inline">
-  <span className="hidden sm:inline">   Courses: Computational Intelligence Lab, Advanced Systems Lab, Large Language Models, Big Data, Network Security, Artificial Intelligence</span>
-</p>
-    </div>
-  </div> 
- 
-
-  <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
-    <div className="flex-shrink-0 w-[5.4rem] h-[5.4rem] sm:w-[7.2rem] sm:h-[7.2rem] mx-auto sm:mx-0">
-      <a
-        href="https://www.unige.ch"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Image
-          src="/images/unige_logo.svg"
-          alt="Université de Genève Logo"
-          width={150}
-          height={150}
-          className="rounded-full"
-          loading="eager"
-        />
-      </a>
-    </div>
-    <div className="flex-1">
-      <h3 className="text-xl font-semibold">University of Geneva</h3>
-      <p>Bachelor&#39;s degree, Computer Science</p>
-      <p>Sep 2021 - June 2025</p>
-      <p>
-        Studied core subjects including Cryptography, Semantics, Networks
-        along with Mathematics and Physics.
-      </p>
-    </div>
-  </div>
-
-  <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
-    <div className="flex-shrink-0 w-[5.4rem] h-[5.4rem] sm:w-[7.2rem] sm:h-[7.2rem] mx-auto sm:mx-0">
-      <a
-        href="https://www.hku.hk"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Image
-          src="/images/hku_logo.jpg"
-          alt="The University of Hong Kong Logo"
-          width={150}
-          height={150}
-          className="rounded-full"
-          loading="eager"
-        />
-      </a>
-    </div>
-    <div className="flex-1">
-      <h3 className="text-xl font-semibold">
-        The University of Hong Kong
-      </h3>
-      <p>Exchange Student - Faculty of Engineering</p>
-      <p>Sep 2023 - June 2024</p>
-      <p>
-        Swiss-International Mobility program, engaged in advanced studies
-        and practical applications in Software Engineering, Data Mining,
-        AI, Networks & Computer Vision.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-<section id="projects" className="min-h-dvh shrink-0 w-full max-w-4xl mb-16 sm:mb-20 lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 py-12 sm:py-16 lg:py-20">
-  <div className="mb-4 flex items-center justify-between">
-    <h2 className="text-2xl font-bold">SELECTED PROJECTS</h2>
-    <Link
-      href="/projects"
-      aria-label="View all projects"
-      title="View all projects"
-      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/20 text-xl font-medium transition-colors hover:bg-black hover:text-white"
-    >
-      +
-    </Link>
-  </div>
-  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-    {selectedProjects.map((project) => (
-      <article key={project.title} className="flex min-h-48 flex-col rounded-lg bg-white p-5 shadow-lg">
-        <h3 className="text-xl font-semibold">{project.title}</h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed">{project.summary}</p>
-        <div className="mt-4">
-          <a
-            href={project.href}
-            target={project.external ? "_blank" : undefined}
-            rel={project.external ? "noopener noreferrer" : undefined}
-            className="inline-flex h-8 min-w-[7.5rem] items-center justify-center rounded-md bg-black px-3 text-xs font-medium text-white transition hover:bg-gray-800"
-          >
-            {project.linkLabel}
-          </a>
+        <div className="affiliation-strip page-container" aria-label="Academic and research background">
+          <p>Learning, building & researching at</p>
+          <div><span>ETH <i>Zürich</i></span><span>Paul Scherrer Institut</span><span>Université de Genève</span><span>The University of Hong Kong</span></div>
         </div>
-      </article>
-    ))}
-  </div>
-</section>
 
-<section id="experiences" className="min-h-dvh shrink-0 w-full max-w-4xl mb-16 sm:mb-20 lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 pt-8 pb-12 sm:pt-10 sm:pb-16 lg:pt-12 lg:pb-20">
-  <h2 className="text-2xl font-bold mb-4">WORK EXPERIENCES</h2>
-   <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
-    <div className="flex-shrink-0 w-[5.4rem] h-[5.4rem] sm:w-[7.2rem] sm:h-[7.2rem] mx-auto sm:mx-0">
-      <a
-        href="https://www.psi.ch/en"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Image
-          src="/images/paul_scherrer_institut_logo.jpeg"
-          alt="Paul Scherrer Institute Logo"
-          width={150}
-          height={150}
-          className="rounded-full"
-          loading="eager"
-        />
-      </a>
+        <section className="section page-container" id="work" aria-labelledby="work-title">
+          <span id="projects" className="anchor-alias" />
+          <div className="section-heading">
+            <div><p className="section-label">Selected work</p><h2 className="serif-heading" id="work-title">From the question to the implementation.</h2></div>
+            <Link className="text-link" href="/projects">All projects <span className="link-count">{allProjects.length}</span></Link>
+          </div>
+          <div className="project-grid">
+            {featuredProjects.map((project) => (
+              <article className="project-card" key={project.slug}>
+                <Link href={`/projects/${project.slug}`} className="project-visual-link" aria-label={`Explore ${project.title}`}>
+                  <ProjectVisual kind={project.visual} compact />
+                </Link>
+                <div className="project-card-copy">
+                  <p className="section-label">{project.category}</p>
+                  <h3><Link href={`/projects/${project.slug}`}>{project.title}</Link></h3>
+                  <p className="muted">{project.summary}</p>
+                  <ul className="tags" aria-label="Technologies">{project.tags.slice(0, 3).map((tag) => <li key={tag}>{tag}</li>)}</ul>
+                  <Link href={`/projects/${project.slug}`} className="text-link">Read case study</Link>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="work-footnote"><span>Also exploring AI for cybersecurity</span><Link href="/projects/soc-log-anomaly-detection" className="text-link">SOC Log Anomaly Detection</Link></div>
+        </section>
+
+        <section className="research-section" id="research" aria-labelledby="research-title">
+          <div className="page-container research-layout">
+            <div className="research-intro"><p className="section-label">Research & curiosity</p><h2 className="serif-heading" id="research-title">The questions<br />behind the code.</h2><p className="muted">My projects sit between learning from data, understanding geometry and making computation practical.</p></div>
+            <div className="research-questions">
+              <details open><summary>How can models understand the physical world?</summary><div><p>Computer vision connects pixels to structure. My work spans monocular depth estimation and vision for proton therapy, where geometry and the application both matter.</p><Link href="/projects/monocular-depth-estimation" className="text-link">Explore the depth-estimation project</Link></div></details>
+              <details><summary>What makes a model efficient in practice?</summary><div><p>A model’s implementation matters alongside its architecture. FastGATr explores sparse computation, memory layout and vectorization to make geometric algebra operations run faster.</p><Link href="/projects/fastgatr" className="text-link">Inside FastGATr</Link></div></details>
+              <details><summary>How do we evaluate ML beyond a demo?</summary><div><p>Forecasting and security-log analysis bring different constraints: seasonality, external data, privacy and evaluation. The case studies explain the approach and distinguish demonstrated results from illustrative interfaces.</p><Link href="/projects/power-grid-load-forecasting" className="text-link">Explore the forecasting project</Link></div></details>
+            </div>
+          </div>
+        </section>
+
+        <section className="section page-container home-notes" id="notes" aria-labelledby="notes-title">
+          <div className="section-heading">
+            <div><p className="section-label">Notes from the work</p><h2 className="serif-heading" id="notes-title">A closer look at the decisions.</h2></div>
+            <Link className="text-link" href="/notes">All notes</Link>
+          </div>
+          <div className="note-list">
+            {notes.map((note) => (
+              <article className="note-preview" key={note.slug}>
+                <div className="note-preview-meta"><p className="section-label">{note.topic}</p><span>{note.readingTime}</span></div>
+                <div><h3><Link href={`/notes/${note.slug}`}>{note.title}</Link></h3><p className="muted">{note.summary}</p></div>
+                <Link className="text-link" href={`/notes/${note.slug}`} aria-label={`Read ${note.title}`}>Read note</Link>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section page-container experience-section" id="experience" aria-labelledby="experience-title">
+          <span id="experiences" className="anchor-alias" />
+          <div className="section-heading"><div><p className="section-label">In practice</p><h2 className="serif-heading" id="experience-title">Different settings. A shared curiosity.</h2></div><a href="https://www.linkedin.com/in/omarff/" className="text-link" target="_blank" rel="noopener noreferrer">Full background on LinkedIn</a></div>
+          <div className="experience-list">{experience.map((item) => <article className="experience-row" key={item.organization}><p className="experience-date">{item.period}</p><div><h3><a href={item.href} target="_blank" rel="noopener noreferrer">{item.organization}</a></h3><p className="experience-role">{item.role}</p></div><p className="muted">{item.description}</p></article>)}</div>
+        </section>
+
+        <section className="about-section page-container" id="about" aria-labelledby="about-title">
+          <div className="about-copy"><p className="section-label">A little about me</p><h2 className="serif-heading" id="about-title">Learning across<br />disciplines. And places.</h2><p>From Geneva to Hong Kong to Zürich, my studies and projects have taken me across computer science, research and teaching.</p><p className="muted">I care about clean code, thoughtful design, and secure, reliable systems. I also enjoy building with people: at hackathons, in research teams, and in the classroom.</p><div className="education-list" id="education"><h3>Education</h3><p><strong>ETH Zürich</strong><span>MSc · Machine Intelligence & Cybersecurity · 2025–2027</span></p><p><strong>University of Geneva</strong><span>BSc · Computer Science · 2021–2025</span></p><p><strong>University of Hong Kong</strong><span>Engineering exchange · 2023–2024</span></p></div></div>
+          <div className="about-aside" id="activities"><figure className="hackathon-photo"><Image src="/images/energy-hackadays.jpg" alt="Energy Data Hackdays event graphic with interconnecting power cables" width={4096} height={2804} sizes="(max-width: 680px) 100vw, 500px" /><figcaption>Energy Data Hackdays · Aargau, 2024</figcaption></figure><div className="beyond-code"><p className="section-label">Beyond the coursework</p><Link href="/projects/swissgrid-pv-installation-angle-prediction">Energy Data Hackdays <span>Solar energy & open data</span></Link><a href="https://www.datascience.ch/event/sdsc-hackathons-ord-for-the-sciences" target="_blank" rel="noopener noreferrer">ORD for the Sciences, EPFL <span>Building with open research data</span></a><a href="https://opendata.ch/events/glamhack24/" target="_blank" rel="noopener noreferrer">GLAMhack, Luzern <span>Culture meets technology</span></a><a href="https://www.instagram.com/hkufrancais/" target="_blank" rel="noopener noreferrer">French Society, HKU <span>A connection across cultures</span></a></div></div>
+        </section>
+
+        <section className="contact-section page-container" id="contact" aria-labelledby="contact-title"><div><p className="section-label">Let’s connect</p><h2 className="serif-heading" id="contact-title">Good work starts<br />with a conversation.</h2><p className="muted">Research, engineering, or an interesting problem — I’d be happy to hear from you.</p></div><div className="contact-links"><a className="button button-primary" href="mailto:oabdesslem@student.ethz.ch">Email me</a><a className="text-link contact-email" href="mailto:oabdesslem@student.ethz.ch">oabdesslem@student.ethz.ch</a><a className="text-link" href="https://www.linkedin.com/in/omarff/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a></div></section>
+      </main>
+      <SiteFooter />
     </div>
-    <div className="flex-1">
-      <h3 className="text-xl font-semibold">
-        Research Intern
-      </h3>
-      <p>
-        Paul Scherrer Institute,
-        June 2026 - Current, Villigen, Switzerland
-      </p>
-            <p className="text-md hidden sm:block">
-        Machine learning and computer vision for proton therapy at PSI.
-      </p>
-    </div>
-  </div> 
-
-   <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
-    <div className="flex-shrink-0 w-[5.4rem] h-[5.4rem] sm:w-[7.2rem] sm:h-[7.2rem] mx-auto sm:mx-0">
-      <a
-        href="http://seculabs.ch"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Image
-          src="/images/SecuLabs.png"
-          alt="SecuLabs Logo"
-          width={150}
-          height={150}
-          className="rounded-full"
-          loading="eager"
-        />
-      </a>
-    </div>
-    <div className="flex-1">
-      <h3 className="text-xl font-semibold">
-        AI Intern
-      </h3>
-      <p>
-        SecuLabs,
-        June 2025 - Sep 2025, Lausanne, Switzerland
-      </p>
-            <p className="text-md hidden sm:block">
-Delivered privacy-preserving, on-prem SOC ML/DL pipelines using anonymized logs for anomaly detection and
-incident forecasting, fine-tuned and benchmarked enterprise LLMs.</p>
-    </div>
-  </div> 
-   
-  
-
-  <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
-    <div className="flex-shrink-0 w-[5.4rem] h-[5.4rem] sm:w-[7.2rem] sm:h-[7.2rem] mx-auto sm:mx-0">
-      <a
-        href="https://slrlab.edu.hku.hk/about-us/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Image
-          src="/images/hku_logo.jpg"
-          alt="SRLAB Logo"
-          width={150}
-          height={150}
-          className="rounded-full"
-          loading="eager"
-        />
-      </a>
-    </div>
-    <div className="flex-1">
-      <h3 className="text-xl font-semibold">
-        Software Engineer - Intern
-      </h3>
-      <p>
-        SLRLAB, The University of Hong Kong (HKU),
-        Jan 2024 - Feb 2024, Hong Kong
-      </p>
-            <p className="text-md hidden sm:block">
-        Built and refined Vue.js learning tools for Cantonese and Mandarin language acquisition, working with developers and educators in a Git-based workflow.
-      </p>
-    </div>
-  </div>
-
-  <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:gap-6">
-    <div className="flex-shrink-0 w-[5.4rem] h-[5.4rem] sm:w-[7.2rem] sm:h-[7.2rem] mx-auto sm:mx-0">
-      <a
-        href="https://www.futurekids.io"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Image
-          src="/images/futurekids_logo_1.png"
-          alt="Futurekids Logo"
-          width={150}
-          height={150}
-          className="rounded-full"
-          loading="eager"
-        />
-      </a>
-    </div>
-
-	    <div className="flex-1">
-	      <h3 className="text-xl font-semibold">Programming Instructor</h3>
-	      <p>
-	        Futurekids, Sept. 2022 - Aug. 2023 and March 2025 - May 2025, Geneva, Switzerland
-	      </p>
-	      <p className="text-md hidden sm:block">
-	        Taught programming fundamentals, Python, and Unreal Engine to students aged 14 to 19.
-	      </p>
-
-
-    </div>
-  </div>
-</section>
-
-
-<section id="activities" className="min-h-dvh shrink-0 w-full max-w-4xl mb-16 sm:mb-20 lg:snap-start lg:snap-always px-6 sm:px-8 lg:px-10 xl:px-0 py-12 sm:py-16 lg:py-20">
-  <h2 className="text-2xl font-bold mb-4">ACTIVITIES</h2>
-  <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-6">
-    {/* Hackathon */}
-    <div className="w-full">
-      <a
-        href="https://www.datascience.ch/event/sdsc-hackathons-ord-for-the-sciences"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Image
-          src="/images/ORD-for-the-sciences-epfl.jpg"
-          alt="ORD-for-the-sciences"
-          width={1300}
-          height={1000}
-	          className="aspect-[5/3] w-full rounded-lg object-cover"
-          loading="eager"
-        />
-      </a>
-      <h3 className="text-xl font-semibold mt-2">
-        Hackathon: ORD for the Sciences, EPFL
-      </h3>
-      <p>{/* Energy Hackathon */}</p>
-    </div>
-    {/* Hackathon */}
-    <div className="w-full">
-      <a
-        href="https://energydatahackdays.ch"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Image
-          src="/images/energy-hackadays.jpg"
-          alt="Energy Hackathon"
-          width={1300}
-          height={1000}
-	          className="aspect-[5/3] w-full rounded-lg object-cover"
-          loading="eager"
-        />
-      </a>
-      <h3 className="text-xl font-semibold mt-2">
-        Energy Data Hackadays 2024, Aargau
-      </h3>
-      <p>{/* Energy Data Hackadays 2024, Aargau */}</p>
-    </div>
-
-    {/* Hackathon */}
-    <div className="w-full">
-      <a
-        href="https://opendata.ch/events/glamhack24/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Image
-          src="/images/opendata-glamhack.jpg"
-          alt="Swiss Open Cultural Data Hackathon, Luzern"
-          width={1300}
-          height={1000}
-	          className="aspect-[5/3] w-full rounded-lg object-cover"
-          loading="eager"
-        />
-      </a>
-      <h3 className="text-xl font-semibold mt-2">
-        Swiss Open Cultural Data Hackathon, Luzern
-      </h3>
-      <p>{/* Swiss Open Cultural Data Hackathon, Luzern */}</p>
-    </div>
-
-    {/* French Society */}
-    <div className="w-full">
-      <a
-        href="https://www.instagram.com/hkufrancais/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Image
-          src="/images/french_soc_log.jpeg"
-          alt="Activity Logo"
-          width={1300}
-          height={1000}
-	          className="aspect-[5/3] w-full rounded-lg object-cover"
-          loading="eager"
-        />
-      </a>
-      <h3 className="text-xl font-semibold mt-2">
-        French Society, HKU, 2023-2024
-      </h3>
-      <p>{/* French Society, HKU, 2023-2024 */}</p>
-    </div>
-  </div>
-</section>
-
-<footer className="w-full text-center py-10 text-sm mt-8">
-  <p>Omar Abdesslem</p>
-  <p>Built by hand using React</p>
-  <p>MIT License, {new Date().getFullYear()}</p>
-  </footer>
-        </>
-
-
-    </main>
   );
 }
