@@ -5,9 +5,12 @@ import { SiteHeader, SiteFooter } from "./components/site-header";
 import { ProjectVisual } from "./components/project-visual";
 import { allProjects, featuredProjects } from "./projects/project-data";
 import { notes } from "./notes/note-data";
+import { SecurityPrinciples } from "./components/security-principles";
+import { achievedResults, researchQuestions } from "./content/home-content";
 
 export const metadata: Metadata = {
-  title: { absolute: "Omar Abdesslem — Machine learning, vision & efficient computing" },
+  title: { absolute: "Omar Abdesslem — Computer vision, ML systems & cybersecurity" },
+  description: "Geometric deep learning, efficient C++ kernels and security-log analysis. Explore Omar Abdesslem's measured project results and open questions in ML and cybersecurity.",
   alternates: { canonical: "/" },
 };
 
@@ -16,7 +19,7 @@ const experience = [
     organization: "Paul Scherrer Institute",
     role: "Research Intern · Computer Vision",
     period: "Jun 2026 – present",
-    description: "Machine learning and computer vision for proton therapy. Working where visual understanding meets scientific applications.",
+    description: "Machine learning and computer vision for proton therapy at PSI.",
     href: "https://www.psi.ch/en",
   },
   {
@@ -47,11 +50,11 @@ export default function HomePage() {
     <div className="site-shell" id="top">
       <SiteHeader home />
       <main id="main-content">
-        <section className="hero page-container" aria-labelledby="hero-title">
+        <section className="hero page-container" id="intro" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <p className="section-label">Machine learning · Computer vision · Efficient computing</p>
-            <h1 className="serif-heading" id="hero-title">Ideas into models.<br />Models into <em>practice.</em></h1>
-            <p className="hero-intro">Hi, I’m Omar. I explore how machine learning can make sense of the world — and how to make it work efficiently.</p>
+            <p className="section-label">Computer vision · Cybersecurity · Systems optimization</p>
+            <h1 className="serif-heading" id="hero-title">Computer vision.<br /><em>ML systems. Security.</em></h1>
+            <p className="hero-intro">Hi, I’m Omar. My interests are geometric deep learning, memory-efficient C++ kernels, and detecting security incidents from noisy logs.</p>
             <p className="hero-context">I’m a computer science master’s student at ETH Zürich, working on computer vision for proton therapy at the Paul Scherrer Institute.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#work">Explore my work</a>
@@ -60,22 +63,32 @@ export default function HomePage() {
           </div>
           <figure className="hero-portrait">
             <div className="portrait-frame">
-              <Image src="/images/profile_picture.jpg" alt="Omar Abdesslem smiling outdoors" width={855} height={855} priority sizes="(max-width: 680px) 75vw, 310px" />
-              <span className="portrait-mark" aria-hidden="true">oa.</span>
+              <Image src="/images/IMG_0122.jpg" alt="Omar Abdesslem smiling outdoors" width={855} height={855} priority sizes="(max-width: 680px) 75vw, 310px" />
             </div>
             <figcaption><span>Omar Abdesslem</span><span>Zürich, Switzerland</span></figcaption>
           </figure>
         </section>
 
-        <div className="affiliation-strip page-container" aria-label="Academic and research background">
-          <p>Learning, building & researching at</p>
-          <div><span>ETH <i>Zürich</i></span><span>Paul Scherrer Institut</span><span>Université de Genève</span><span>The University of Hong Kong</span></div>
-        </div>
+        <section className="page-container results-section" aria-labelledby="results-title">
+          <p className="section-label" id="results-title">Concrete results from my projects</p>
+          <div className="results-grid">
+            {achievedResults.map((result) => (
+              <article className="result-summary" key={result.label}>
+                <p className="result-summary-value">{result.value}</p>
+                <h2>{result.label}</h2>
+                <p className="muted">{result.context}</p>
+                <Link className="text-link" href={result.href}>Results and evaluation details</Link>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <SecurityPrinciples />
 
         <section className="section page-container" id="work" aria-labelledby="work-title">
           <span id="projects" className="anchor-alias" />
           <div className="section-heading">
-            <div><p className="section-label">Selected work</p><h2 className="serif-heading" id="work-title">From the question to the implementation.</h2></div>
+            <div><p className="section-label">Selected work</p><h2 className="serif-heading" id="work-title">Projects, methods and measured results.</h2></div>
             <Link className="text-link" href="/projects">All projects <span className="link-count">{allProjects.length}</span></Link>
           </div>
           <div className="project-grid">
@@ -99,11 +112,14 @@ export default function HomePage() {
 
         <section className="research-section" id="research" aria-labelledby="research-title">
           <div className="page-container research-layout">
-            <div className="research-intro"><p className="section-label">Research & curiosity</p><h2 className="serif-heading" id="research-title">The questions<br />behind the code.</h2><p className="muted">My projects sit between learning from data, understanding geometry and making computation practical.</p></div>
+            <div className="research-intro"><p className="section-label">ML & cybersecurity</p><h2 className="serif-heading" id="research-title">Questions I want<br />to work on.</h2><p className="muted">I’m interested in geometric constraints for learning, reducing memory traffic in inference, and security models that remain useful when the data changes.</p><p className="research-open-note">These are open questions and directions I want to investigate. The linked projects show the work I’ve already done.</p></div>
             <div className="research-questions">
-              <details open><summary>How can models understand the physical world?</summary><div><p>Computer vision connects pixels to structure. My work spans monocular depth estimation and vision for proton therapy, where geometry and the application both matter.</p><Link href="/projects/monocular-depth-estimation" className="text-link">Explore the depth-estimation project</Link></div></details>
-              <details><summary>What makes a model efficient in practice?</summary><div><p>A model’s implementation matters alongside its architecture. FastGATr explores sparse computation, memory layout and vectorization to make geometric algebra operations run faster.</p><Link href="/projects/fastgatr" className="text-link">Inside FastGATr</Link></div></details>
-              <details><summary>How do we evaluate ML beyond a demo?</summary><div><p>Forecasting and security-log analysis bring different constraints: seasonality, external data, privacy and evaluation. The case studies explain the approach and distinguish demonstrated results from illustrative interfaces.</p><Link href="/projects/power-grid-load-forecasting" className="text-link">Explore the forecasting project</Link></div></details>
+              {researchQuestions.map((item, index) => (
+                <details key={item.question} open={index === 0}>
+                  <summary>{item.question}</summary>
+                  <div><p>{item.context}</p><p className="research-next-step"><strong>What I’d investigate</strong>{item.approach}</p><Link href={item.href} className="text-link">{item.linkLabel}</Link></div>
+                </details>
+              ))}
             </div>
           </div>
         </section>
@@ -135,7 +151,7 @@ export default function HomePage() {
           <div className="about-aside" id="activities"><figure className="hackathon-photo"><Image src="/images/energy-hackadays.jpg" alt="Energy Data Hackdays event graphic with interconnecting power cables" width={4096} height={2804} sizes="(max-width: 680px) 100vw, 500px" /><figcaption>Energy Data Hackdays · Aargau, 2024</figcaption></figure><div className="beyond-code"><p className="section-label">Beyond the coursework</p><Link href="/projects/swissgrid-pv-installation-angle-prediction">Energy Data Hackdays <span>Solar energy & open data</span></Link><a href="https://www.datascience.ch/event/sdsc-hackathons-ord-for-the-sciences" target="_blank" rel="noopener noreferrer">ORD for the Sciences, EPFL <span>Building with open research data</span></a><a href="https://opendata.ch/events/glamhack24/" target="_blank" rel="noopener noreferrer">GLAMhack, Luzern <span>Culture meets technology</span></a><a href="https://www.instagram.com/hkufrancais/" target="_blank" rel="noopener noreferrer">French Society, HKU <span>A connection across cultures</span></a></div></div>
         </section>
 
-        <section className="contact-section page-container" id="contact" aria-labelledby="contact-title"><div><p className="section-label">Let’s connect</p><h2 className="serif-heading" id="contact-title">Good work starts<br />with a conversation.</h2><p className="muted">Research, engineering, or an interesting problem — I’d be happy to hear from you.</p></div><div className="contact-links"><a className="button button-primary" href="mailto:oabdesslem@student.ethz.ch">Email me</a><a className="text-link contact-email" href="mailto:oabdesslem@student.ethz.ch">oabdesslem@student.ethz.ch</a><a className="text-link" href="https://www.linkedin.com/in/omarff/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a></div></section>
+        <section className="contact-section page-container" id="contact" aria-labelledby="contact-title"><div><p className="section-label">Let’s connect</p><h2 className="serif-heading" id="contact-title">Good work starts<br />with a conversation.</h2><p className="muted">Research, engineering, or an interesting problem — I’d be happy to hear from you.</p></div><div className="contact-links"><a className="button button-primary" href="mailto:omar-abdesslem@mail.ch">Email me</a><a className="text-link" href="https://www.linkedin.com/in/omarff/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a></div></section>
       </main>
       <SiteFooter />
     </div>

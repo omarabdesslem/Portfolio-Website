@@ -29,11 +29,11 @@ export function ProjectVisual({ kind, compact = false }: { kind: Project["visual
         </svg>
       ) : kind === "depth" ? (
         <svg viewBox="0 0 420 250" role="img" aria-label="Conceptual monocular depth-estimation diagram: a single image is mapped to scene depth">
-          <defs><linearGradient id={`depth-${compact ? "small" : "large"}`} x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b6c1da" /><stop offset=".5" stopColor="#798eae" /><stop offset="1" stopColor="#354c72" /></linearGradient></defs>
+          <defs><linearGradient id={`depth-${compact ? "small" : "large"}`} x1="0" y1="0" x2="1" y2="1"><stop stopColor="#cccccc" /><stop offset=".5" stopColor="#999999" /><stop offset="1" stopColor="#444444" /></linearGradient></defs>
           <g fill="none" stroke="currentColor" opacity=".65" strokeWidth="1.2"><path d="M35 58H177V180H35ZM35 58L77 89H139L177 58M35 180L77 143H139L177 180M77 89V143M139 89V143" /><path d="M91 143V112H117V143M48 122L66 128V151L48 161Z" /></g>
           <path d="M220 58H365V180H220Z" fill={`url(#depth-${compact ? "small" : "large"})`} />
-          <path d="M220 58L262 89H327L365 58M220 180L262 143H327L365 180" fill="#e3e7f0" opacity=".3" />
-          <path d="M262 89H327V143H262Z" fill="#ced7e5" /><path d="M277 143V112H303V143Z" fill="#a1b1c9" />
+          <path d="M220 58L262 89H327L365 58M220 180L262 143H327L365 180" fill="#eeeeee" opacity=".3" />
+          <path d="M262 89H327V143H262Z" fill="#dddddd" /><path d="M277 143V112H303V143Z" fill="#bbbbbb" />
           <text x="35" y="30" className="visual-label">LEARNING TO SEE IN 3D</text>
           <text x="35" y="216" className="visual-small">Single image</text><text x="220" y="216" className="visual-small">Scene depth · concept</text>
         </svg>

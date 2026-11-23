@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Omar Abdesslem — Machine learning, computer vision, efficient computing";
+export const alt = "Omar Abdesslem — Computer vision, efficient ML systems, cybersecurity";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -15,8 +15,8 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px 80px",
-          background: "#f8faf9",
-          color: "#183b31",
+          background: "#ffffff",
+          color: "#171717",
           fontFamily: "sans-serif",
         }}
       >
@@ -28,20 +28,20 @@ export default function OpenGraphImage() {
             Omar Abdesslem
           </div>
           <div style={{ display: "flex", fontSize: 34, lineHeight: 1.4, maxWidth: 900 }}>
-            Machine learning. Computer vision. Efficient computing.
+            Computer vision. Efficient ML systems. Cybersecurity.
           </div>
         </div>
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
-            borderTop: "1px solid #b6c8be",
+            borderTop: "1px solid #c4c4c4",
             paddingTop: 24,
             fontSize: 22,
-            color: "#476557",
+            color: "#555555",
           }}
         >
-          <div style={{ display: "flex" }}>Selected work & ideas</div>
+          <div style={{ display: "flex" }}>Selected projects & research</div>
           <div style={{ display: "flex" }}>omar-abdesslem.ch</div>
         </div>
       </div>

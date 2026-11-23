@@ -2,12 +2,12 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 const description =
-  "Omar Abdesslem explores machine learning, computer vision, and efficient computing. Selected projects, research, and engineering work from ETH Zürich and beyond.";
+  "Research and engineering projects by Omar Abdesslem: computer vision for proton therapy, efficient ML systems, and cybersecurity log analysis.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://omar-abdesslem.ch"),
   title: {
-    default: "Omar Abdesslem — Machine Learning & Computer Vision",
+    default: "Omar Abdesslem — Computer vision, ML systems & cybersecurity",
     template: "%s | Omar Abdesslem",
   },
   description,
@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "Omar Abdesslem",
     "machine learning",
     "computer vision",
+    "efficient ML systems",
+    "cybersecurity",
     "efficient computing",
     "ETH Zürich",
     "Paul Scherrer Institute",
@@ -22,7 +24,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Omar Abdesslem", url: "https://omar-abdesslem.ch" }],
   openGraph: {
-    title: "Omar Abdesslem — Machine Learning & Computer Vision",
+    title: "Omar Abdesslem — Computer vision, ML systems & cybersecurity",
     description,
     siteName: "Omar Abdesslem",
     locale: "en_CH",
@@ -30,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Omar Abdesslem — Machine Learning & Computer Vision",
+    title: "Omar Abdesslem — Computer vision, ML systems & cybersecurity",
     description,
     images: ["/opengraph-image"],
   },
@@ -42,7 +44,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f8faf9",
+  themeColor: "#ffffff",
 };
 export default function RootLayout({
   children,

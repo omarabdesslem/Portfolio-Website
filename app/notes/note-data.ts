@@ -1,3 +1,7 @@
+import { securityStudyNotes } from "./security-study-notes";
+import { visionStudyNotes } from "./vision-study-notes";
+import { swissgridStudyNote } from "./swissgrid-study-note";
+
 export type Note = {
   slug: string;
   title: string;
@@ -6,11 +10,13 @@ export type Note = {
   readingTime: string;
   sections: { heading: string; paragraphs: string[] }[];
   sources: { label: string; href: string; external?: boolean }[];
-  projectSlug: string;
-  projectTitle: string;
+  kind?: "Project note" | "Reading note" | "Research sketch";
+  provenance?: string;
+  projectSlug?: string;
+  projectTitle?: string;
 };
 
-export const notes: Note[] = [
+const projectNotes: Note[] = [
   {
     slug: "algebra-before-vectorization",
     title: "The algebra is part of the optimization",
@@ -131,4 +137,11 @@ export const notes: Note[] = [
       { label: "Simulated public demonstration", href: "https://polimo.netlify.app", external: true },
     ],
   },
+];
+
+export const notes: Note[] = [
+  ...visionStudyNotes,
+  ...securityStudyNotes,
+  swissgridStudyNote,
+  ...projectNotes,
 ];

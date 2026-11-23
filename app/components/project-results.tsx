@@ -49,7 +49,7 @@ export function ProjectResults({ kind }: { kind: Project["visual"] }) {
         <figcaption>
           <p className="section-label">From the benchmarks</p>
           <h3>The full implementation, measured.</h3>
-          <p className="muted">Original report figure. The green series compares SIMD C++ with the optimized PyTorch reference; the vertical axis uses a logarithmic scale.</p>
+          <p className="muted">Original report figure. The triangle-marked series compares SIMD C++ with the optimized PyTorch reference; the vertical axis uses a logarithmic scale.</p>
         </figcaption>
         <Image className="benchmark-image" src={fastgatrBenchmark} alt="Original benchmark plot: SIMD C++ is 1.7–4.5 times faster than EzGATr across the tested Apple M1 configurations. A separate series compares with the straightforward C++ baseline and ends at input size 32." sizes="(max-width: 680px) 90vw, 720px" />
         <a className="text-link" href="/images/projects/fastgatr-benchmark.png" target="_blank" rel="noopener noreferrer">Open full-size benchmark<span className="sr-only"> (opens in a new tab)</span></a>

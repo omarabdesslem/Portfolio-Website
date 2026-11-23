@@ -171,16 +171,17 @@ export const swissgridProject: Project = {
   visual: "solar",
   featured: false,
   challenge:
-    "The challenge starts with three unknowns: which building a PV plant belongs to, which roof is most plausible, and what tilt and orientation the panels likely have.",
+    "The challenge starts with three unknowns: which building a PV plant belongs to, which roof is most plausible, and what tilt and orientation the panels likely have. Matching a roof is only part of the problem: on a flat roof, the roof's orientation does not reliably identify the panels' direction.",
   approach: [
     "Cluster roof geometries into buildings and match the resulting groups to PV plants using a PostgreSQL database.",
     "Rank candidate roofs using a cost function incorporating energy efficiency, size, roof class, and inclination.",
-    "Apply explicit tilt and orientation rules for flat or unusually steep roofs, with defaults for unmatched plants.",
+    "Use explicit adjustment rules: for roof tilts below 5°, assign an 18° panel tilt and apply modulo 45° to the orientation. Cap unusually steep tilt estimates at 35°.",
+    "Assign an 18° default tilt when a PV plant cannot be matched to a roof, keeping these fallback assumptions distinct from observed installation angles.",
   ],
   outcome:
     "The team produced a workflow mapping PV plant IDs to selected roof information and estimated installation angles. The presentation documents the matching logic, roof-selection criteria, and adjustment rules.",
   caveat:
-    "The outputs are estimates based on geometry and heuristic rules. The presentation does not establish a measured prediction accuracy against verified panel installations.",
+    "The outputs are estimates based on geometry and heuristic rules. Flat-roof orientation is especially uncertain, and the default angles are assumptions rather than observed panel installations. The presentation does not establish a measured prediction accuracy against verified installation angles.",
   sources: [{ label: "Read the team presentation", href: "/PDFs/Swissgrid-Challenge_%20PV%20Installation%20Angles.pdf" }],
   href: "/PDFs/Swissgrid-Challenge_%20PV%20Installation%20Angles.pdf",
   linkLabel: "Team presentation",
